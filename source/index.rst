@@ -1,3 +1,6 @@
+.. todo:: Alle Funktionsdefinitionen die einzeilig sind (ansonsten) als mehrzeilige umschreiben
+
+
 Theoretische Grundlagen der Informatik
 ======================================
 
@@ -7,6 +10,7 @@ Vorlesungsverzeichnis:
    :maxdepth: 3
 
    vorlesungen/1
+   vorlesungen/2
 
 Definitionsverzeichnis:
 -----------------------

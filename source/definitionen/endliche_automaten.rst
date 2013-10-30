@@ -132,7 +132,7 @@ Sei :math:`u,w \in \varSigma^*`, so heißt u Suffix von w, wenn
   \exists v \in \varSigma^*: w = vu
 
 
-Präfix
+Infix
 -------
 
 Sei :math:`u,w \in \varSigma^*`, so heißt u Infix von w, wenn
