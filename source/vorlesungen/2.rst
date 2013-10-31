@@ -1,12 +1,13 @@
+************
 2. Vorlesung
-============
+************
 
 Es wurden die folgenden Definitionen eingeführt
 
 - :ref:`produktautomat`
 
 Lemma: :math:`L(a_1 X a_2) = L(a_1) \cap L(a_2)`
-------------------------------------------------
+===============================================
 
 .. math::
   &w = a_1 ... a_n \in L(a_1 X a_2) \\
@@ -19,28 +20,33 @@ Lemma: :math:`L(a_1 X a_2) = L(a_1) \cap L(a_2)`
 
 
 Satz: Zu jedem NEA a mit Worttransitionen gibt es einen äquivalenten NEA a'.
------------------------------------------------------------------------------
+============================================================================
 
 .. image:: http://i.imgur.com/32sLBKI.jpg
     :width: 1000
 
-**Lemma 1:** Zu jedem NEA a mit Worttransitionen gibt es einen :math:`\varepsilon`-NEA a' mit L(a) = L(a').
+Lemma 1: Zu jedem NEA a mit Worttransitionen gibt es einen :math:`\varepsilon`-NEA a' mit L(a) = L(a').
+--------------------------------------------------------------------------------------------------------
+
+**Beweis:**
+
+Ersetze jede Transition :math:`(p, a_1,...,a_n, q)` in a mit :math:`n \ge 2` durch Transitionen :math:`(p, a_1, q_1), (p, a_2, q_2),...., (p, a_n, q_n)` mit jeweils neuen Zuständen :math:`q_1,...,q_{n - 1}`.
 
 
-**Beweis:** ersetze jede Transition :math:`(p, a_1,...,a_n, q)` in a mit :math:`n \ge 2` durch Transitionen :math:`(p, a_1, q_1), (p, a_2, q_2),...., (p, a_n, q_n)` mit jeweils neuen Zuständen :math:`q_1,...,q_{n - 1}`.
 
+Lemma 2: Zu jedem :math:`\varepsilon`-NEA a gibt es einen äquivalenten NEA a'
+-----------------------------------------------------------------------------
 
+**Beweis:**
 
-**Lemma 2:** Zu jedem :math:`\varepsilon`-NEA a gibt es einen äquivalenten NEA a'
-
-
-**Beweis:** Sei :math:`a = (Q, \varSigma, q_0, \Delta, F)` ein :math:`\varepsilon`-NEA. O.B.d.A gibt es keine Transitionen nach q_0. Wir definieren :math:`a' = (Q, \varSigma, q_0, \Delta', F')` mit
+Sei :math:`a = (Q, \varSigma, q_0, \Delta, F)` ein :math:`\varepsilon`-NEA. O.B.d.A gibt es keine Transitionen nach q_0. Wir definieren :math:`a' = (Q, \varSigma, q_0, \Delta', F')` mit
 
 .. math::
   &(p,a,q) \in \Delta' \Longleftrightarrow \exists \text{ ein Pfad } \Pi \text{ durch a von p nach q mit Beschriftung } p(\Pi) = a \\
   &F' =  F \cup \{ q_0 \} \text{ falls } a: q_0 \rightarrow^\varepsilon F, \text{ ansonsten F}
 
-**Behauptung: L(a) = L(a')**
+Behauptung: L(a) = L(a')
+------------------------
 
 "<": a akzeptiert w. Sei :math:`p_0 a_1 p_1 ... a_n p_n` Pfad von :math:`q_0` durch :math:`\varepsilon`-NEA a nach F mit Beschriftung w. Seien :math:`a_{i_1},...,a_{i_n}` die :math:`a_i \neq \varepsilon` (mit :math:`i_1 < i_2 < ... < i_n`) :math:`\Longrightarrow w = a_{i_1}, ..., a_{i_n}`
 
