@@ -6,9 +6,9 @@ Produktautomat
 Gegeben seien zwei NEA's :math:`a_i = (Q_i, \varSigma, q_i, \Delta_i, F_i) \text{ für } i = 1,2`, so ist der Produktautomat :math:`a_1 X a_2` gegeben durch:
 
 .. math::
-  &(Q_1 X Q_2, \varSigma, (q_1, q_2), \Delta, F) \text{ mit } \\
+  &(Q_1 \times Q_2, \varSigma, (q_1, q_2), \Delta, F) \text{ mit } \\
   &((p,r), a, (p', r')) \in \Delta \Longleftrightarrow (p,a,p') \in \Delta_1 \text{ und } (r,a,r') \in \Delta_2 \\
-  &F = F_1 X F_2
+  &F = F_1 \times F_2
 
 NEA mit Worttransitionen
 ========================

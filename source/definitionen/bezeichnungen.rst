@@ -20,7 +20,7 @@ Leeres Wort
 
 Menge der Wörter über :math:`\varSigma`
 
-:math:`\{ a,b \}^* = \{ \varsigma, a, b, ab, aa, ba, bb, ... \}`
+:math:`\{ a,b \}^* = \{ \varepsilon, a, b, ab, aa, ba, bb, ... \}`
 
 .. math::
   &\mid w \mid = \text{Länge des Wortes } w \in \varSigma^* \text{(Anzahl der Buchstaben)}
