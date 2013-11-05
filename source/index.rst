@@ -9,16 +9,15 @@ Vorlesungsverzeichnis:
 .. toctree::
    :maxdepth: 3
 
-   vorlesungen/1
-   vorlesungen/2
+   vorlesungen/index
+
 
 Definitionsverzeichnis:
 -----------------------
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
-   definitionen/bezeichnungen
-   definitionen/endliche_automaten
+   definitionen/index
 
 
 Gliederung der Vorlesungen
