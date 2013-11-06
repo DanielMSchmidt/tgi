@@ -1,0 +1,122 @@
+************
+4. Vorlesung
+************
+
+Allgemein zum Bestimmen von äuqivalenten Zuständen
+=======================================================
+
+Eingabe
+-------
+
+DEA a, der nur erreichbare Zustände enthält
+
+1. stelle eine Tabelle aller Zustandspaare :math:`\{ q, q' \}` mit :math:`q \neq q'` von a auf.
+2. markiere alle Paare :math:`\{ q, q' \}` mit :math:`q \in F \wedge q' \notin F` (bzw. umgekehrt)
+3. für jedes noch unmarkierte Paar :math:`\{ q, q' \}` und jedes :math:`a \in \varSigma` teste, ob :math:`\{ \delta(q,a), \delta(q', a) \}` bereits markiert ist. Wenn ja markiere auch :math:`\{ q,q'\}`
+4. wiederhole Schritt (3) bis sich keine Änderungen mehr in der Tabelle ergeben.
+5. alle noch unmarkierten Paare sind äuqivalente Zustände.
+
+.. image:: http://i.imgur.com/JQk4Ey3.jpg
+  :width: 1000
+
+.. image:: http://i.imgur.com/odOffa8.jpg
+  :width: 1000
+
+Korrektheit
+-----------
+
+1. es werden nur nicht-äquivalente Zustandspaare makiert.
+2. der Algorithmus terminiert (es gibt nur endl. viele Paare)
+3. bei Abbruch des Algorithmus sind alle nicht-äquivalenten Paare markiert:
+
+
+**Voraussetzung:** Der Algorithmus endet nach m+1 Iterationen von Schritt 3.
+
+
+**Annahme:** Ein nicht-äquivalentes Paar (p,q) ist noch nicht markiert. Wähle l > m +1 minimal aus, sodass
+
+.. math::
+  a: p \rightarrow^w F, a: q /rightarrow^w \notin F \wedge \mid w \mid = l
+
+Sei w = u v mit :math:`\mid v \mid = m + 1`, so gilt:
+
+.. math::
+  a: p \rightarrow^u p' \rightarrow^v F, a: q \rightarrow^u q' \rightarrow^v \notin F
+
+Das Paar (p', q') ist in der (m + 1) Iteration trennbar mit :math:`a: p' \rightarrow^v F, a: q' \rightarrow^v \notin F`, aber nicht in einer früheren Iteration (ansonsten wäre l nicht minimal). Daraus folgt, dass in der (m + 1) Iteration noch ein nicht-äquivalentes Paar gefunden wurde, woraus :math:`\ge (m + 2)` Iterationen und daher ein Wiederspruch.
+
+
+
+Es wurden die folgenden Definitionen eingeführt
+
+- :ref:`aequiv`
+- :ref:`aequivWord`
+- :ref:`indexOf`
+
+
+Satz von Nerode
+================
+
+Behauptung:
+-----------
+
+:math:`L \subset \varSigma^* \text{regulär} \Longleftrightarrow \text{Index von } \simeq_L \text{ ist endlich}`
+
+Beweis:
+-------
+
+:math:`\Rightarrow`:
+
+Sei a = (Q, :math:`\varSigma, q_0, \delta`, F) ein DEA, der L erkennt, so ist zu zeigen, dass verschiedene :math:`\simeq_L`-Klassen in :math:`\varSigma^*` bestimmen verschiedene :math:`\simeq_a`-Klassen in Q.
+
+**Dann:** :math:`\mid Q \mid \ge Index(\simeq_a) \ge Index(\simeq_L)`
+
+Seien :math:`u \not\simeq_L v`, d.h. :math:`[u]_L \neq [v]_L` gegeben. Bilde nun :math:`\delta(q_0, u), \delta(q_0,v)` und :math:`\delta(q_0, u) \not\sim_a \delta(q_0,v)`.
+
+**Annahme:** :math:`\delta(q_0, u) \sim_a \delta(q_0,v)`
+
+.. math::
+  &\delta(q_0, u) \sim_a \delta(q_0,v) \\
+  & \forall w \in \varSigma^*: \delta(\delta(q_0, u), w) \in F \Longleftrightarrow \delta(\delta(q_0, v), w) \in F \\
+  & \forall w \in \varSigma^*: uw \in L \Longleftrightarrow vw \in L \\
+  & u \simeq_L v = WSP\\
+
+:math:`\Leftarrow`:
+
+Sei Index (:math:`\simeq_L`) endlich. Bilde DEA a, der L erkennt.
+
+a = :math:`(Q^\sim, \varSigma, q_0^\sim, \delta^\sim, F^\sim)` mit
+
+:math:`Q^\sim` = Menge der :math:`\simeq_L` - Äquivalenzklassen
+
+:math:`q_0^\sim = [\varepsilon]`
+
+:math:`F^\sim = \{ [u] \mid u \in L \}`
+
+und :math:`\forall a \in \varSigma: \delta^\sim ([u], a) = [u a]`
+
+
+Beachte:
+--------
+
+
+:math:`\forall w \in \varSigma^*: [u] = [v] \Longrightarrow [uw] = [vw]`
+
+Hieraus folgt: :math:`\delta^\sim` ist wohldefiniert und es gilt ferner (per Induktion über :math:`\mid w \mid`):
+
+:math:`\forall w \in \varSigma^*: \delta^\sim([u], w) = [u w]`
+
+Dann gilt
+
+.. math::
+  w \in L(a) &\Longleftrightarrow \text{a akzeptiert w} \\
+  &\Longleftrightarrow \delta^\sim([\varepsilon], w) \in F^\sim \\
+  &\Longleftrightarrow [\varepsilon w ] = w \in F \\
+  &\Longleftrightarrow  w \in L. \Rightarrow L(a) = L
+
+**Satz:**
+
+Der kanonische DEA a ist isomorph zu jedem DEA :math:`a^\sim`, der gemäß dem Reduktionsverfahren aus einem belibigen DEA a, der L erkennt, entsteht.
+
+.. image:: http://i.imgur.com/UbDcDq2.jpg
+  :width: 1000

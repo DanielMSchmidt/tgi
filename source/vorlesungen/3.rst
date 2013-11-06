@@ -118,7 +118,7 @@ b)
 
 Es wurden die folgenden Definitionen eingeführt
 
-- :ref:`aequiv`
+- :ref:`aequivClass`
 - :ref:`reduzierterDea`
 
 

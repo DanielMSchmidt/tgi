@@ -11,5 +11,5 @@ Definitionen
    fortsetzung
    regular
    erreichbar
-   aequiv
+   aequivClass
    reduzierter_dea

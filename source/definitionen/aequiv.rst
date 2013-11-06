@@ -1,18 +1,11 @@
 .. _aequiv:
 
-Äquivalenzklassen
-=================
+Äquivalenz (:math:`\sim`)
+=========================
 
-Die Äquivalenzklassen DEA :math:`\overline{a}` zu a sei definiert
+Zwei Zustände q, q' heißen äuqivalent, falls gilt:
 
 .. math::
-  &\overline{a} = (\overline{Q}, \varSigma, \overline{q_0}, \overline{\delta}, \overline{F}) \\
-  &\overline{Q} = \{ \overline{q} \mid q \in Q \} \\
-  &\overline{\delta}(\overline{q},a) = \overline{\delta(q,a)} \\
-  &\overline{F} = \{ \overline{q} \mid q \in F \}
+  \forall a \in \varSigma^*(\delta(q,w) \in F \Longleftrightarrow \delta(q', w) \in F)
 
-Bemerkungen
-------------
-
-(c) :math:`\overline{\delta}(\overline{q}, w) = \overline{\delta(q,w)}`
-(d) :math:`\overline{a}` ist äquivalent zu a
+Es gilt also :math:`q \sim q', a \in \varSigma \Longrightarrow \delta(q,a) \sim \delta(q',a)`.
