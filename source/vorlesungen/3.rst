@@ -26,7 +26,7 @@ Neue Folge ausgehend von {:math:`q_o`} längs aller Folgen von Buchstaben die Me
 Formal:
 ------
 
-Sei :math:`a = (Q, \varSigma, q_0, \Delta, F)` gegeben, so definiere :math:`a' = (Q', \varSigma, q_0^', \delta', F')`, so gilt:
+Sei :math:`a = (Q, \varSigma, q_0, \Delta, F)` gegeben, so definiere :math:`a' = (Q', \varSigma, q_0', \delta', F')`, so gilt:
 
 .. math::
   &Q' = 2^Q = \{ R \mid E \subseteq Q \} \text{ Potenzmenge von Q} \\
