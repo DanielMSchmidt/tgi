@@ -1,0 +1,154 @@
+*************
+5. Vorlesung
+*************
+
+Angabe von nicht-regulären Sprachen
+====================================
+
+Dies folgt aus dem Satz von Nerode.
+
+.. math::
+  \text{L ist nicht-regulär} \Longleftrightarrow \text{Index von } \simeq_L \text{ ist unedlich (d.h. unendl. viele Äquivalenzklassen)}
+
+Beziehungsweise es gibt Wörter :math:`u_i \in \varSigma^*` für beliebige :math:`i \ge 0`, so dass für :math:`i \neq j` jeweils ein Wort w existiert mit :math:`u_i w \in L` und :math:`u_j w \notin L`.
+
+Beispiel :math:`L_i = \{ a^i b^i \mid i \ge 0 \}`
+-------------------------------------------------
+
+Wähle :math:`u_i = a^i`. Für :math:`i \neq j` gilt mit w = b^i :
+
+.. math::
+  &u_i w = a^i b^i \in L_1 \wedge \\
+  &u_j w = a^j b^i \notin L_1 (\text{da } i \notin j)
+
+Daraus folgt, dass :math:`L_1` nicht regulär ist.
+
+
+
+Sei :math:`L_2 = \{ 0^i 1^j \mid ggT(i,j) = 1 \}` und wähle :math:`u_P = 0^P`, wobei p Primzahl ist (beachte es gibt unendlich viele Primzahlen). Für :math:`P \neq q` gilt mit :math:`w = 1^q`:
+
+.. math::
+  &u_p w = 0^P 1^q \in L_2, \text{ weil }ggT(p,q) = 1 \\
+  &u_p w = 0^q 1^q \notin L_2, \text{ weil }ggT(q,q) = 1 \ge 2 \\
+
+
+Pumping-Lemma
+=============
+
+Es sei L eine reguläre Sprache. Dann gibt es eine Zahl :math:`n \in \mathscr{N}`, sodass sich alle Wörter :math:`x \in L` mit :math:`\mid x \mid \ge n` zerlegen lassen in x = u v w mit den folgenden Eigenschaften:
+
+1. :math:`\mid v \mid \ge 1`
+2. :math:`\mid u v \mid \le n`
+3. :math:`\forall i \ge 0: u v^i w \in L`
+
+Formal
+------
+
+.. math::
+  \text{L ist regulär} \Rightarrow \exists n \in \mathscr{N}: \forall x \in L: \mid x \mid \ge n \Rightarrow x = u v w \wedge 1, 2 and 3
+
+
+Beweis
+-------
+
+Sei a ein DEA der L akzeptiert. Wir wählen :math:`n = \mid Q \mid`. Sei :math:`x \in L` mit :math:`\mid x \mid = m \ge n` und :math:`x = a_1,...,a_n` mit :math:`a_i \in \varSigma`. Dann folgt daraus, dass ein Pfad existiert mit :math:`\Pi = p_0 a_1 p_1 a_2 p_2 .... a_m p_m` mit :math:`p_0 = q_0` und :math:`p_w \in F`. Die Anzahl der Zustände in :math:`\Pi` ist :math:`m + 1 \ge n + 1` (d.h. ein Zustand kommt mindestens zweimal vor). Daraus folgt, dass unter den ersten n+1 Zuständen :math:`p_0,...,p_n` existiert ein Paar k,k' mit :math:`0 \le k < k' \le n` und :math:`p_k = p_{k'}`. Wähle :math:`u = a_1 ... a_k`, :math:`v = a_{k+1} ... a_{k'}`, :math:`w = a_{k'+1} ... a_m`. Das heißt, das wegen :math:`p_k = p_{k'}` gilt:
+
+.. math::
+  \forall i \ge 0: u v^i w \in L(a) = L
+
+Da :math:`k < k'` gilt :math:`\mid v \mid \ge 1` und da :math:`k' \le n` gilt :math:`\mid nv \mid \ge n`.
+
+.. todo:: Erstes Bild einfügen
+
+Beispiel 1
+-----------
+
+Sei :math:`L = \{ a^i b^i \mid i \ge 1 \}` nicht-regulär.
+
+Annahme: L ist regulär, also gibt es ein :math:`n \in \mathscr{N}`, sodass alle Wörter :math:`x \in L` die Länge :math:`x \ge n ` haben.
+Wähle :math:`x = a^n b^n` der Länge 2n, so folgt darus:
+
+.. math::
+  \exists &Zerlegung x = u v w: (1) \mid v \mid \ge 1, (2) \mid u,v \mid \le n \\
+  \Rightarrow &uv = a^m: m \le n \wedge m \ge 1 \\
+  \Rightarrow &v = a^{m'}: 1 \le m' \le m \\
+  \Rightarrow &uw = a^{n - m'} b^n \in L
+
+Dies ist ein Widerspruch da :math:`n - m' \neq n` und nach Annahme :math:`a^n b^n` kann dies nicht gelten.
+
+
+
+Beispiel 2
+-----------
+
+:math:`L = \{ 0^m \mid m ist Quadratzahl \}` ist nicht regulär.
+
+Annahme: L ist regulär, woraus folgt, dass :math:`\exists n \in N`, sodass alle Wörter :math:`x \in L` die Länge n haben.
+Wähle :math:`x = 0^{n^2}`, woraus folgt, dass :math:`x \in L` ist und :math:`\mid x \mid = n^2 \ge n`.
+Betrachtet man nun eine beliebige Zerlegung x = u v w mit :math:`1 \le \mid v \mid \le \mid uv \mid \le n`, so ergibt sich :math:`u v^2 w \in L`. Andererseits gilt:
+
+.. math::
+  n^2 &= \mid x \mid \\
+  &= \mid u v w \mid \\
+  &<^{\mid v \mid \ge 1} \mid u v^2 w \mid \\
+  &= \mid uvw \mid + \mid v \mid \\
+  &= n^2 + \mid v \mid \\
+  &\le n^2 + \mid uv \mid \\
+  &\le n^2 + n \\
+  &< n^2 + 2n + 1 \\
+  &= (n+1)^2
+
+Dies ist ein Widerspruch, da es eine Quadratzahl ist.
+
+
+
+Reguläre Ausdrücke
+==================
+
+Die Menge der regulären Ausdrücke (r.A.) über :math:`\varSigma` ist induktiv definiert durch:
+
+- :math:`\emptyset, \varsigma, a` (für :math:`a \in \varSigma`) sind r.A. über :math:`\varSigma`
+- sind r,s reguläre Ausdrücke, so auch (r + s), (r :math:`\cdot` s), r*
+
+Beispiel: :math:`(( a + b)^* \cdot a)`
+--------------------------------------
+
+Die durch einen regulären Ausdruck r definierte Sprache L(r) ist induktiv definiert durch:
+
+- :math:`L(\emptyset) = \emptyset, L(\varsigma) = \{ \varsigma \}, L(a) = \{ a \} f.a a \in \varSigma`
+- :math:`L(r + s) = L(r) \cup L(s)`
+- :math:`L(r \cdot s) = L(r) \cdot L(s)`
+- :math:`L(r^*) = (L(r))^*`
+
+:math:`L(a) = \{ w \in \{ a,b \}^* \mid w = b \vee w = a b^i mit i \ge 0 \}` und r :math:`((a \cdot b^*) + b) \widehat{=} a b^* + b`, so ist r = L(a).
+
+.. todo:: Zweites Bild einfügen
+
+Konventionen
+------------
+
+- Außenklammern fallen wegen
+- :math:`\cdot` bindet stärker als +
+- :math:`*` bindet stärker als :math:`\cdot`
+- :math:`\cdot` darf wegfallen
+
+
+
+Satz von Kleene
+================
+
+Eine Sprache :math:`L \subseteq \varSigma^*` ist durch einen NEA erkennbar :math:`\Longleftrightarrow` L ist durch einen regulären Ausdruck definiert.
+
+Beweis
+-------
+
+:math:`\Longrightarrow`: durch Induktion über Aufbau der regulären Ausdrücke. Finde für jeden regulären Ausdruck r einen :math:`\varepsilon`-NEA :math:`a_r` mit einem Endzustand :math:`L(r) = L(a_r)`
+
+
+Induktionsanfang:
+
+.. todo:: 3. Bild einfügen
+
+Induktionsschluss:
+
+.. todo:: 4. Bild einfügen
