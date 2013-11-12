@@ -58,7 +58,8 @@ Sei a ein DEA der L akzeptiert. Wir wählen :math:`n = \mid Q \mid`. Sei :math:`
 
 Da :math:`k < k'` gilt :math:`\mid v \mid \ge 1` und da :math:`k' \le n` gilt :math:`\mid nv \mid \ge n`.
 
-.. todo:: Erstes Bild einfügen
+.. image:: http://i.imgur.com/zatzZaz.jpg
+  :width: 1000
 
 Beispiel 1
 -----------
@@ -122,7 +123,8 @@ Die durch einen regulären Ausdruck r definierte Sprache L(r) ist induktiv defin
 
 :math:`L(a) = \{ w \in \{ a,b \}^* \mid w = b \vee w = a b^i mit i \ge 0 \}` und r :math:`((a \cdot b^*) + b) \widehat{=} a b^* + b`, so ist r = L(a).
 
-.. todo:: Zweites Bild einfügen
+.. image:: http://i.imgur.com/oz6BMkG.jpg
+  :width: 500
 
 Konventionen
 ------------
@@ -147,8 +149,10 @@ Beweis
 
 Induktionsanfang:
 
-.. todo:: 3. Bild einfügen
+.. image:: http://i.imgur.com/yjlvJ4e.jpg
+  :width: 1000
 
 Induktionsschluss:
 
-.. todo:: 4. Bild einfügen
+.. image:: http://i.imgur.com/klvMI1r.jpg
+  :width: 1000
