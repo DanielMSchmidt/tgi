@@ -15,10 +15,10 @@ Beziehungsweise es gibt Wörter :math:`u_i \in \varSigma^*` für beliebige :math
 Beispiel :math:`L_i = \{ a^i b^i \mid i \ge 0 \}`
 -------------------------------------------------
 
-Wähle :math:`u_i = a^i`. Für :math:`i \neq j` gilt mit w = b^i :
+Wähle :math:`u_i = a^i`. Für :math:`i \neq j` gilt mit :math:`w = b^i` :
 
 .. math::
-  &u_i w = a^i b^i \in L_1 \wedge \\
+  &u_i w = a^i b^i \in L_1 \text{ und } \\
   &u_j w = a^j b^i \notin L_1 (\text{da } i \notin j)
 
 Daraus folgt, dass :math:`L_1` nicht regulär ist.
@@ -51,7 +51,11 @@ Formal
 Beweis
 -------
 
-Sei a ein DEA der L akzeptiert. Wir wählen :math:`n = \mid Q \mid`. Sei :math:`x \in L` mit :math:`\mid x \mid = m \ge n` und :math:`x = a_1,...,a_n` mit :math:`a_i \in \varSigma`. Dann folgt daraus, dass ein Pfad existiert mit :math:`\Pi = p_0 a_1 p_1 a_2 p_2 .... a_m p_m` mit :math:`p_0 = q_0` und :math:`p_w \in F`. Die Anzahl der Zustände in :math:`\Pi` ist :math:`m + 1 \ge n + 1` (d.h. ein Zustand kommt mindestens zweimal vor). Daraus folgt, dass unter den ersten n+1 Zuständen :math:`p_0,...,p_n` existiert ein Paar k,k' mit :math:`0 \le k < k' \le n` und :math:`p_k = p_{k'}`. Wähle :math:`u = a_1 ... a_k`, :math:`v = a_{k+1} ... a_{k'}`, :math:`w = a_{k'+1} ... a_m`. Das heißt, das wegen :math:`p_k = p_{k'}` gilt:
+Sei a ein DEA der L akzeptiert. Wir wählen :math:`n = \mid Q \mid`. Sei :math:`x \in L` mit :math:`\mid x \mid = m \ge n` und :math:`x = a_1,...,a_n` mit :math:`a_i \in \varSigma`. Dann folgt daraus, dass ein Pfad existiert mit :math:`\Pi = p_0 a_1 p_1 a_2 p_2 .... a_m p_m` mit :math:`p_0 = q_0` und :math:`p_w \in F`.
+
+Die Anzahl der Zustände in :math:`\Pi` ist :math:`m + 1 \ge n + 1` (d.h. ein Zustand kommt mindestens zweimal vor). Daraus folgt, dass unter den ersten n+1 Zuständen :math:`p_0,...,p_n` existiert ein Paar k,k' mit :math:`0 \le k < k' \le n` und :math:`p_k = p_{k'}`. Wähle :math:`u = a_1 ... a_k`, :math:`v = a_{k+1} ... a_{k'}`, :math:`w = a_{k'+1} ... a_m`.
+
+Das heißt, das wegen :math:`p_k = p_{k'}` gilt:
 
 .. math::
   \forall i \ge 0: u v^i w \in L(a) = L
@@ -82,7 +86,7 @@ Dies ist ein Widerspruch da :math:`n - m' \neq n` und nach Annahme :math:`a^n b^
 Beispiel 2
 -----------
 
-:math:`L = \{ 0^m \mid m ist Quadratzahl \}` ist nicht regulär.
+:math:`L = \{ 0^m \mid \text{ m ist Quadratzahl} \}` ist nicht regulär.
 
 Annahme: L ist regulär, woraus folgt, dass :math:`\exists n \in N`, sodass alle Wörter :math:`x \in L` die Länge n haben.
 Wähle :math:`x = 0^{n^2}`, woraus folgt, dass :math:`x \in L` ist und :math:`\mid x \mid = n^2 \ge n`.
@@ -101,39 +105,9 @@ Betrachtet man nun eine beliebige Zerlegung x = u v w mit :math:`1 \le \mid v \m
 
 Dies ist ein Widerspruch, da es eine Quadratzahl ist.
 
+Es wurden die folgenden Definitionen eingeführt
 
-
-Reguläre Ausdrücke
-==================
-
-Die Menge der regulären Ausdrücke (r.A.) über :math:`\varSigma` ist induktiv definiert durch:
-
-- :math:`\emptyset, \varsigma, a` (für :math:`a \in \varSigma`) sind r.A. über :math:`\varSigma`
-- sind r,s reguläre Ausdrücke, so auch (r + s), (r :math:`\cdot` s), r*
-
-Beispiel: :math:`(( a + b)^* \cdot a)`
---------------------------------------
-
-Die durch einen regulären Ausdruck r definierte Sprache L(r) ist induktiv definiert durch:
-
-- :math:`L(\emptyset) = \emptyset, L(\varsigma) = \{ \varsigma \}, L(a) = \{ a \} f.a a \in \varSigma`
-- :math:`L(r + s) = L(r) \cup L(s)`
-- :math:`L(r \cdot s) = L(r) \cdot L(s)`
-- :math:`L(r^*) = (L(r))^*`
-
-:math:`L(a) = \{ w \in \{ a,b \}^* \mid w = b \vee w = a b^i mit i \ge 0 \}` und r :math:`((a \cdot b^*) + b) \widehat{=} a b^* + b`, so ist r = L(a).
-
-.. image:: http://i.imgur.com/oz6BMkG.jpg
-  :width: 500
-
-Konventionen
-------------
-
-- Außenklammern fallen wegen
-- :math:`\cdot` bindet stärker als +
-- :math:`*` bindet stärker als :math:`\cdot`
-- :math:`\cdot` darf wegfallen
-
+- :ref:`regex`
 
 
 Satz von Kleene
