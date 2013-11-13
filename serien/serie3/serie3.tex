@@ -53,7 +53,22 @@
 \renewcommand{\headrulewidth}{0pt}
 \fancyhf{}
 \fancyhead[L]{
-\headerleftright{\textbf{TGI}}{David Elvers, Daniel Schmidt}}
+\headerleftright{\textbf{TGI - Serie 3}}{David Elvers, Daniel Schmidt}}
 \fancyfoot[C]{\thepage}
 
+\section*{3.3 Pumping - Lemma}
+
+Wir beweisen durch Widerspruch und nehmen an, dass L regulär ist. Somit gibt es ein $n \in \mathbb{N}$ für das alle Wörter $x \in L$ die Länge n haben. Wähle i als nächstgrößere Primzahl nach n, $x := a^i$ und betrachte eine beliebige Zerlegung x = uvw und setze  s = 2n  , so gilt:
+\begin{equation}
+\begin{split}
+\exists j,k,l: 0 \le j,k,l \le n: x &= uvw \\
+&= a^j a^k a^l \\
+&=^{Pumping - Lemma }a^j a^{s - (j + k)} a^k \\
+&= a^s \\
+&= a^{2n} \\
+&\Rightarrow \mid a^{2n} \mid = 2n
+\end{split}
+\end{equation}
 \end{document}
+
+Damit ist die Länge des Wortes nicht mehr Prim, also ist das Wort nicht in der Sprache und damit L nicht regulär.
