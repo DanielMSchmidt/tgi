@@ -1,6 +1,6 @@
-*************
-5. Vorlesung
-*************
+*******************
+5. und 6. Vorlesung
+*******************
 
 Angabe von nicht-regulären Sprachen
 ====================================
@@ -70,7 +70,7 @@ Beispiel 1
 
 Sei :math:`L = \{ a^i b^i \mid i \ge 1 \}` nicht-regulär.
 
-Annahme: L ist regulär, also gibt es ein :math:`n \in \mathscr{N}`, sodass alle Wörter :math:`x \in L` die Länge :math:`x \ge n ` haben.
+Annahme: L ist regulär, also gibt es ein :math:`n \in \mathscr{N}`, sodass alle Wörter :math:`x \in L` die Länge :math:`x \ge n` haben.
 Wähle :math:`x = a^n b^n` der Länge 2n, so folgt darus:
 
 .. math::
@@ -118,7 +118,7 @@ Eine Sprache :math:`L \subseteq \varSigma^*` ist durch einen NEA erkennbar :math
 Beweis
 -------
 
-:math:`\Longrightarrow`: durch Induktion über Aufbau der regulären Ausdrücke. Finde für jeden regulären Ausdruck r einen :math:`\varepsilon`-NEA :math:`a_r` mit einem Endzustand :math:`L(r) = L(a_r)`
+:math:`\Longleftarrow`: durch Induktion über Aufbau der regulären Ausdrücke. Finde für jeden regulären Ausdruck r einen :math:`\varepsilon`-NEA :math:`a_r` mit einem Endzustand :math:`L(r) = L(a_r)`
 
 
 Induktionsanfang:
@@ -130,3 +130,144 @@ Induktionsschluss:
 
 .. image:: http://i.imgur.com/klvMI1r.jpg
   :width: 1000
+
+:math:`\Longrightarrow`: Sei :math:`a = (Q, \varSigma, q_0, \Delta, F)` als NEA gegeben mit :math:`Q = \{ q_0, q_1,...,q_n\}`. Wir definieren für :math:`0 \le i,j \le n`:
+
+.. math:: L_{ij} = \{ w: a: q_i \rightarrow^w q_j \}
+
+So gilt
+
+.. math::
+  L(a) = \bigcup_{q_j \in F} L_{0 j}
+
+Es genügt nun :math:`r_{ij}` für :math:`L_{ij}` zu finden. Hierzu gelte :math:`L(r) = \varSigma_{q_j \in F} r_{0 j}` Der Index(q) für :math:`q \in Q` sei dasjenige j mit :math:`q_j = q`.
+
+Sei
+
+.. math::
+  L_{ij}^k = \{ w \mid \exists Pfad \Pi = p_0 a_1 p_1 ... p_{m - 1} a_m p_m: w = a_1 ... a_m, p_0 = q_i, p_m = q_j, Index(P_l) < k \text{ für } l = 1,..., m - 1 \}
+
+Beweis: :math:`L_{ij} = L_{ij}^{n+1}`
+
+Zeige: :math:`\forall k = 0, ..., n + 1: \forall i,j: L_{i,j}^k` ist durch einen regulären Ausdruck definierbar.
+
+k = 0:
+
+Falls i = j: :math:`L_{ij}^0 = \{ \varepsilon \} \cup \{ a \mid (q_i, a, q_j) \in \Delta \}`
+Sonst: :math:`\{a \mid (q_i, a, q_j) \in \Delta \}`
+
+Daraus folgt für :math:`r_{ij}^0`:
+
+Falls i = j: :math:`r_{ij}^0 = \varepsilon + \varSigma_{(q_i, a, q_j) \in \Delta} a`
+Sonst: :math:`r_{ij}^0 = \varSigma_{(q_i,a,q_j) \in \Delta} a`
+
+Induktionsschritt:
+
+Es sei :math:`L_{ij}^k` durch den regulären Ausdruck :math:`r_{ij}^k` definierbar, also gilt:
+
+.. math::
+  w \in L_{ij}^{k + 1} &\Longleftrightarrow w \in L_{ij}^k \vee \exists m: w = w_0 w_1 ... w_m \text{ und } w_0 \in L_{ij}^k, w_1,..., w_{m-1} \in L_{kk}^k \text{ und } w_m \in L_{Rj}^k \\
+  &\Longrightarrow L_{ij}^{k+1} = L_{ij}^k \cup L_{ik}^k (L_{kk}^k)^* L_{kj}^k \text{ und } r_{ij}^{k+1} = r_{ij}^k + r_{ik}^k (r_{kk}^k)^* r_{kj}^k
+
+
+
+Beispiel
+--------
+
+k = 0:
+
+.. image:: http://i.imgur.com/dTyeGQK.jpg
+  :width: 1000
+
+
+k = 1:
+
+.. math::
+  r_{00}^1 = r_{00}^0 + r_{00}^0 (r_{00}^0)^* r_{00}^0 &= (\varepsilon + 0) + (\varepsilon + 0)^* + (\varepsilon + 0) = 0^* \\
+  r_{01}^1 = r_{01}^0 + r_{00}^0 (r_{00}^0)^* r_{01}^0 &= 1 + 0^* 1 = 0^* 1 \\
+  r_{02}^1 = r_{01}^0 + r_{00}^0 (r_{00}^0)^* r_{02}^0 &= \emptyset \\
+  r_{11}^1 = r_{11}^0 + r_{10}^0 (r_{00}^0)^* r_{01}^0 &= \varepsilon + \emptyset 1 = 1\\
+  .... &= .... \\
+  r_{02}^2 = r_{02}^1 + r_{02}^1 (r_{11}^1)^* r_{12}^1 &= \emptyset + 0^* 1 \varepsilon 1 = 0^* 1 1 \\
+  r_{02}^3 = r_{02}^2 + r_{02}^2 (r_{22}^2)^* r_{22}^2 &= 0^* 1 1 + 0^* 1 1 \varepsilon = 0^* 1 1 = r_{02} = L(a)
+
+
+
+Ziel: Elegantes Verfahren für die Konstruktion von regulären Ausdrücken
+=======================================================================
+
+Sei :math:`a = (Q, \varSigma, q_0, \Delta, F)` mit :math:`Q = \{ q_0, ..., q_n \}`, :math:`a_i = (Q, \varSigma, q_i, \Delta, F)`, :math:`L_i = L(a_i)` für :math:`0 \le i \le n`
+
+Nummerierung der Transiitonen aus :math:`q_i`: :math:`(q_i, a_{(i,1)}, q_{(i,1)}),...,(q_i, a_{(i,w_i)}, q_{(i,w_i)})`
+
+.. image:: http://i.imgur.com/qPWHRPV.jpg
+  :width: 600
+
+:math:`(*)_i`:
+
+.. math::
+  L_i = \{ a_{(i,1)} \} \cdot L_{(i,1)} \cup ... \cup \{ a_{(i, w_i)} \} L_{(i, w_i)} \cup E_i
+
+Mit
+
+.. math::
+  E_i =
+    \left\{
+      \begin{array}{ll}
+        \{ \varepsilon \} & \mbox{falls } q_i \in F \\
+        \emptyset & \mbox{sonst}
+      \end{array}
+    \right.
+
+Zur Vereinfachung: :math:`\{ a \} L_j \cup \{ b \} L_j = \{ a,b \} L_j`
+
+Sei also :math:`A_{i,j} = \{ a \mid \{ a \} L_j \text{ kommt in der Zeile } (*)_j \text{ vor.}\}`
+Daraus folgt: :math:`L_i = A_{i,0} L_0 \cup A_{i,1} L_1 \cup ... \cup A_{i,n} L_n \cup E_i`, wobei :math:`A_{i,j} ˜in \varSigma`.
+
+
+
+Beispiel
+---------
+
+.. image:: http://i.imgur.com/KIVMe7x.jpg
+  :width: 1000
+
+
+Satz: Das zum NEA gehörige Gleichungssystem ist eindeutig lösbar
+================================================================
+
+Das zum NEA a gehörige Gleichungssystem GS(a) :math:`X_i = \bigcup_{j = 0}^n A_{ij} X_j \cup E_i` mit :math:`A_{ij}, E_i` wie oben ist eindeutig lösbar und :math:`L_0,...,L_n` mit :math:`L_i = L(a_i)` ist die Lösung.
+
+
+Beweis:
+--------
+
+:math:`(L_0,...,L_n)` ist Lösung wegen der Definition von GS(a).
+
+Eindeutigkeit:
+
+Seien :math:`(K_0,...,K_n),(K_0^', ..., K_n^')` Lösungen von GS(a). Zeige :math:`\forall w \in \varSigma^*: \{ w \} \cap K_i = \{ w \} \cap K_i^'`
+
+Indktion über |w|:
+
+IA: |w| = 0
+
+.. math::
+  \{ \varepsilon \} \cap K_i &= \bigcup_{j=0}^n(\{ \varepsilon \} \cap A_{ij} K_j) \cup (\{ \varepsilon\} \cap E_i)) \\
+  &= \{ \varepsilon \} \cap E_i
+
+Analog für K'
+
+
+IS: |w| = n + 1
+
+
+Sei :math:`w = xy` mit |x| = 1
+
+.. math::
+  \{ w \} \cap K_i &= \bigcup_{j = 0}^n(\{ w \} \cap A_{ij} K_j) \cup (\{w\} \cap E_i) \\
+  &= ... \\
+  &= \{ w \} \cap K_{L}^{'}
+
+.. image:: http://i.imgur.com/ajg2Tlx.jpg
+  :width: 800
