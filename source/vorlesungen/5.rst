@@ -45,7 +45,7 @@ Formal
 ------
 
 .. math::
-  \text{L ist regulär} \Rightarrow \exists n \in \mathscr{N}: \forall x \in L: \mid x \mid \ge n \Rightarrow x = u v w \wedge 1, 2 and 3
+  \text{L ist regulär} \Rightarrow \exists n \in \mathscr{N}: \forall x \in L: \mid x \mid \ge n \Rightarrow x = u v w \wedge 1, 2 \text{ und } 3
 
 
 Beweis
