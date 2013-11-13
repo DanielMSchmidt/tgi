@@ -246,7 +246,7 @@ Beweis:
 
 Eindeutigkeit:
 
-Seien :math:`(K_0,...,K_n),(K_0^', ..., K_n^')` Lösungen von GS(a). Zeige :math:`\forall w \in \varSigma^*: \{ w \} \cap K_i = \{ w \} \cap K_i^'`
+Seien :math:`(K_0,...,K_n),(K_0^{'}, ..., K_n^{'})` Lösungen von GS(a). Zeige :math:`\forall w \in \varSigma^*: \{ w \} \cap K_i = \{ w \} \cap K_i^'`
 
 Indktion über |w|:
 
