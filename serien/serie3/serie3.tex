@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{color}
+\usepackage[utf8]{inputenc}
 
 \pagestyle{fancy}
 
@@ -71,6 +72,15 @@ Wir beweisen durch Widerspruch und nehmen an, dass L regulär ist. Somit gibt es
 \end{equation}
 
 Damit ist die Länge des Wortes nicht mehr Prim, also ist das Wort nicht in der Sprache und damit L nicht regulär.
- 
+
+
+\section*{3.4 Rechtsaequivalenz}
+
+Seien die Äquivalenzklassen a definiert als $[a] = \{ a_i \mid i \in \mathbb{N} \}$ und sei $a_i$ definiert als:
+
+\begin{equation}
+[a_i] := \{ w \mid \exists n \in \mathbb{N}: \mid w \mid = (n! - i) \}
+\end{equation}
+
 \end{document}
 
