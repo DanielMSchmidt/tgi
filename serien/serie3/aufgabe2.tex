@@ -1,0 +1,106 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{url,graphicx,tabularx,array,geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{paralist}
+\usepackage{latexsym}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{color}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+\pagestyle{fancy}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\setlength{\parskip}{1ex} %--skip lines between paragraphs
+\setlength{\parindent}{0pt} %--don't indent paragraphs
+
+%-- Commands for header
+\newcommand{\headerline}{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}\hline\\\end{tabularx}\\[-0.5cm]}
+\newcommand{\headerleftright}[2]{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}#1%
+& #2\\\end{tabularx}\\[-0.5cm]}
+%\linespread{2} %-- Uncomment for Double Space
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{document}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\fancyhead[L]{
+\headerleftright{\textbf{TGI}}{David Elvers, Daniel Schmidt}}
+\fancyfoot[C]{\thepage}
+
+\section*{Aufgabe 3.2}
+
+\subsection*{a)}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+
+  \node[initial,state] (A)                    {$q_0$};
+  \node[state]         (B)  [right of=A]      {$q_1$};
+  \node[state]         (C)  [right of=B]      {$q_2$};
+  \node[state]         (D)  [right of=C]      {$q_3$};
+  \node[state]         (E)  [below of=D]      {$q_4$};
+  \node[state]         (F)  [below of=C]      {$q_5$};
+  \node[state]         (G)  [below of=B]      {$q_6$};
+  \node[state]         (H)  [below of=A]      {$q_7$};
+
+  \path (A) edge              node {$\epsilon$} (B)
+        (B) edge              node {a} (C)
+            edge [bend left]  node {$\epsilon$} (D)
+        (C) edge              node {a} (D)
+        (D) edge [bend left]  node {$\epsilon$} (B)
+            edge              node {$\epsilon$} (E)
+        (E) edge              node {b} (F)
+            edge [bend left]  node {$\epsilon$} (G)
+        (F) edge              node {b} (G)
+        (G) edge [bend left]  node {$\epsilon$} (E)
+            edge              node {$\epsilon$} (H);
+        
+\end{tikzpicture}
+
+
+\subsection*{b)}
+ F\"ur $k=0$: \\
+\begin{tabular}{c|c|c|c}
+   $r^0_{00}$ & $r^0_{01}$ & $r^0_{10}$ & $r^0_{11}$ \\ \hline
+   $\epsilon + a$ & $b$ & $b$ & $\epsilon + a$\\
+ \end{tabular}
+ 
+ F\"ur $k=1$:\\
+$r^1_{00} = r^0_{00} \cup r^0_{00}(r^0_{00})^* r^0_{00} = \epsilon + a (\epsilon+a)^* \epsilon + a = a^*$\\
+.\\
+.\\
+.\\
+$=a^* b a^* b$
+\end{document}
