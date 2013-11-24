@@ -81,6 +81,40 @@ X_0 &= 0^* 1^* 0 X_1 \\
 \end{split}
 \end{equation}
 
+\section*{Aufgabe 4.3}
+Wir beweisen dies per Induktion über die Wortlänge:
+
+\subsection*{Induktionsanfang}
+Sei $w \in L$ und $\mid w \mid  = 1$, so gilt
+\begin{equation}
+w	=  a = w^R
+\end{equation}
+
+Somit ist $w^R$ regulär.
+\subsection*{Induktionsvoraussetzung}
+Sei L regulär, $w \in L$ und $\mid w \mid = n$, so ist $w^R$ regulär.
+
+\subsection*{Induktionsschluss}
+
+Sei $\mid w \mid = n + 1$, so gilt:
+
+\begin{equation}
+w = a_1 ... a_{n+1}
+\end{equation}
+
+Also gilt für $w^R$
+
+\begin{equation}
+\begin{split}
+w^R &= a_{n+1} a_n ... a_1 \\
+&= a_{n+1} + a_n ... a_1
+\end{split}
+\end{equation}
+
+$a_{n+1}$ ist per Induktionsanfang regulär und $ a_n ... a_1$ per Induktionsvoraussetzung. Dementsprechend sind beide zusammen ebenfalls regulär.
+
+Da alle $w \in L^R$ regulär sind, wenn L regulär ist gilt die Behauptung.
+
 \section*{Aufgabe 4.4}
 
 Sei $A$ DEA der regul\"aren Sprache L.
