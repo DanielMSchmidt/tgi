@@ -62,11 +62,12 @@
 \section*{5.2}
 
 \subsection*{G}
-Sei G gegeben als $G=(V, \varSigma, P, S)$ mit V = {S,A,B,C,D}, $\varSigma$ = {a,b,c,d} und \\ 
-P = $\{$ (S,(A $\mid$ B $\mid$ C $\mid$ D $\mid$ a $\mid$ b $\mid$ c $\mid$ d $\mid \varepsilon$)), (A, (aSa)), (B, (bSb)), (C, (cSc)), (D, (dSd)) $\}$
+Sei $G$ gegeben als $G=(V, \varSigma, P, S)$ mit V = {S}, $\varSigma$ = {a,b,c,d} und \\ 
+P = $\{$ (S, $\varepsilon$), (S, (aSa)), (S, (bSb)), (S, (cSc)), (S, (dSd)), (S,a), (S,b), (S,c), (S,d) $\}$
 
 \subsection*{Kontextfrei}
 Dies gilt, da für alle $(\alpha, \beta) \in P$ gilt, dass $\alpha \in V$ ist. Dementsprechend ist die Grammatik Kontextfrei.
+Jede der Regeln hat die Form $A \rightarrow \alpha $ daher ist $G$ kontextfrei.
 
 \subsection*{L = L(G)}
 Dies zeigen wir, indem wir zeigen, dass alle $w' \in L(G)$ exakt die Bedingung von L erfüllen.  \\
