@@ -108,8 +108,9 @@ Dementsprechend ist jedes Wort aus w auch in L(G), also erzeugt G L.
 zu Zeigen
 
 \section*{5.4}
-\subsection*{Präfixtreu}
 
+\subsection*{Präfixtreu}
+\textbf{ALLES FALSCH, MIT DEF VON F STATT LAMBDA NOCHMAL RECHNEN}
 Es gilt zu zeigen, dass für beliebige $u,v \in \Sigma^*$ f(u) das Präfix von f(uv) ist. Hierzu setzen wir u als $u := a_1,...,a_i$ und v als $u := a_{i+1},...,a_n$. Dann gilt nach Definition 1.62: 
 
 \begin{align*}
@@ -123,7 +124,40 @@ f(q,uv) &= f(q, a_1,...,a_n) \\
 Damit ist f also präfixtreu.
 
 \subsection*{Längenbeschränkt}
-zu Zeigen: $\forall w \in \Sigma^*: \exists: k \ge 0: \mid f(w) \mid \le k \mid w \mid $
+Wir zeigen $\forall w \in \Sigma^*: \exists: k \ge 0: \mid f(w) \mid \le k \mid w \mid $ per Induktion über der Länge von w:
+
+\subsubsection*{Induktionsanfang $\mid$ w $\mid$ = 1}
+Setze $k := max_{x \in (\Sigma \cup \{ \emptyset \} \cup \{ \epsilon \})}( \mid f(x) \mid)$, so gilt:
+
+\begin{align*}
+\mid f(w) \mid &\le k \\
+&= k \mid w \mid
+\end{align*}
+
+\subsubsection*{Induktionsvoraussetzung $\mid$ w $\mid$ = n}
+\begin{align*}
+\exists k \ge 0: \mid f(w) \mid \le k \mid w \mid
+\end{align*}
+
+\subsubsection*{Induktionsschluss $\mid$ w $\mid$ = n + 1}
+
+Sei w = va, so gilt nach Definition von f: 
+
+\begin{align*}
+f(va) &= \lambda^*(q_0, va) \\
+&= \lambda^*(q_0, v) \lambda(\delta(q_0,v), a) \\
+&= f(v)  \lambda(\delta(q_0,v), a) 
+\end{align*} 
+
+Da $\mid f(v) \mid = n$ kann die Induktionsvoraussetzung angewandt werden, also ein k' gesetzt werden für das $\mid f(v) \mid \le k' \mid v \mid$ gilt. Setze nun $k'' := max_{x \in \Sigma}(\mid \lambda(\delta(q_0,v),x) \mid )$ und k := k' + k'', so gilt:
+
+\begin{align*}
+\mid f(w) \mid &= \mid f(v) \mid + \mid \lambda(\delta(q_0,v),a) \mid \\
+&\le k' \mid v \mid + \mid \lambda(\delta(q_0,v),a) \mid \\
+&\le k' \mid v \mid + k'' 1 \\
+&= (k' + k'') \cdot (\mid v \mid + 1) \\
+&= k \mid w \mid
+\end{align*}
 
 \subsection*{Regulär}
 zu Zeigen: Ist L regulär, so ist auch f(L) regulär
