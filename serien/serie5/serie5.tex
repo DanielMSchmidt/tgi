@@ -62,12 +62,11 @@
 \section*{5.2}
 
 \subsection*{G}
-Sei $G$ gegeben als $G=(V, \varSigma, P, S)$ mit V = {S}, $\varSigma$ = {a,b,c,d} und \\ 
-P = $\{$ (S, $\varepsilon$), (S, (aSa)), (S, (bSb)), (S, (cSc)), (S, (dSd)), (S,a), (S,b), (S,c), (S,d) $\}$
+Sei G gegeben als $G=(V, \Sigma, P, S)$ mit V = {S,A,B,C,D}, $\Sigma$ = {a,b,c,d} und \\
+P = $\{$ (S,(A $\mid$ B $\mid$ C $\mid$ D $\mid$ a $\mid$ b $\mid$ c $\mid$ d $\mid \varepsilon$)), (A, (aSa)), (B, (bSb)), (C, (cSc)), (D, (dSd)) $\}$
 
 \subsection*{Kontextfrei}
 Dies gilt, da für alle $(\alpha, \beta) \in P$ gilt, dass $\alpha \in V$ ist. Dementsprechend ist die Grammatik Kontextfrei.
-Jede der Regeln hat die Form $A \rightarrow \alpha $ daher ist $G$ kontextfrei.
 
 \subsection*{L = L(G)}
 Dies zeigen wir, indem wir zeigen, dass alle $w' \in L(G)$ exakt die Bedingung von L erfüllen.  \\
@@ -83,6 +82,32 @@ $\forall w \in L(G): w \in L$ (Ist das die richtige Behauptung?)
 zu Zeigen
 
 \section*{5.3}
+Um zu zeigen, dass eine Sprache kontextfrei ist zeigen wir, dass es eine Grammatik gibt die Kontextfrei ist und diese Sprache erzeugt.
+Diese definieren wir wie folgt:
+
+\begin{align*}
+X^n &= \bigcup^{n \in \mathbb{N}_{\ge 0}} \{a^i b^j \mid \exists i,j \in \mathbb{N}_{\ge 0}: i + j = n \} \\
+Y^n &= \bigcup^{n \in \mathbb{N}_{\ge 0}} \{c^i d^j \mid \exists i,j \in \mathbb{N}_{\ge 0}: i + j = n \} \\
+V &= X^n \cup Y^n \cup S \text{mit n } \in \mathbb{N} \\
+\Sigma &= \{ a,b,c,d \} \\
+X'^n &= \mid^{n \in \mathbb{N}_{\ge 0}} (\mid^{X \in X^n} X) \\
+Y'^n &= \mid^{n \in \mathbb{N}_{\ge 0}} (\mid^{Y \in Y^n} Y) \\
+P &= (S , (\mid^{n \in \mathbb{N}_{\ge 0}} X^n Y^n)) \cup X'^n \cup Y'^n \\
+G &= (V, \Sigma, P, S)
+\end{align*}
+
+\subsection*{G erzeugt L}
+Seien $m,n \in \mathbb{N}_{\ge 0}$ beliebig und $p \in \mathbb{N}_{\ge 0}: p \le m+n$ so gilt zu zeigen, dass ein Wort $w \in L$ mit solchen m,n,p und dem sich daraus ergebenden q erzeugt werden kann. Sprich, dass $w \in L(G)$ ist, es gibt also eine Resolution die dieses Wort als Ergebnis hat.
+\begin{align*}
+S &\rightarrow X^{m+n} Y^{p+q} \\
+&\rightarrow a^m b^n c^p d^q
+\end{align*}
+
+Dementsprechend ist jedes Wort aus w auch in L(G), also erzeugt G L.
+\subsection*{G ist kontextfrei}
+zu Zeigen
+
 \section*{5.4}
+
 
 \end{document}
