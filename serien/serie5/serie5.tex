@@ -108,6 +108,23 @@ Dementsprechend ist jedes Wort aus w auch in L(G), also erzeugt G L.
 zu Zeigen
 
 \section*{5.4}
+\subsection*{Präfixtreu}
 
+Es gilt zu zeigen, dass für beliebige $u,v \in \Sigma^*$ f(u) das Präfix von f(uv) ist. Hierzu setzen wir u als $u := a_1,...,a_i$ und v als $u := a_{i+1},...,a_n$. Dann gilt nach Definition 1.62: 
 
+\begin{align*}
+f(q,uv) &= f(q, a_1,...,a_n) \\
+&= f(q,a_1) f(\delta(q, a_1), a_2) ... f(\delta(q,a_1...a_{n-1})a_n) \\
+&= f(q,a_1) f(\delta(q, a_1), a_2) ... f(\delta(q, a_1 ... a_{i-1}), a_i) f(\delta(q, a_1,..., a_i), a_{i+1} ...  f(\delta(q,a_1...a_{n-1})a_n) \\
+&= f(q,a_1 ... a_i) f(\delta(q, a_1 .... a_i) a_{i+1} ... a_n) \\
+&= f(q,u) f(\delta(q, a_1 .... a_i) v)
+\end{align*}
+
+Damit ist f also präfixtreu.
+
+\subsection*{Längenbeschränkt}
+zu Zeigen: $\forall w \in \Sigma^*: \exists: k \ge 0: \mid f(w) \mid \le k \mid w \mid $
+
+\subsection*{Regulär}
+zu Zeigen: Ist L regulär, so ist auch f(L) regulär
 \end{document}
