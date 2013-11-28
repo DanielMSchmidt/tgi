@@ -72,18 +72,46 @@ S &\rightarrow X_1 \\
 X_1 &\rightarrow ad \mid a X_1d \mid X_2 \mid X_{2'} \\
 X_2 &\rightarrow ac \mid a X_2 c \mid X_3 \\
 X_{2'} &\rightarrow bd \mid b X_{2'} d \mid X_3 \\
-X_3 &\rightarrow bc \mid b X_3 c
+X_3 &\rightarrow bc \mid b X_3 c \mid \epsilon
 \end{align*}
 
 \subsection*{G erzeugt L}
 Es gilt zu zeigen, dass jedes Wort in L durch G erzeugt werden kann. Hierzu unterscheiden wir den Fall, dass $m \ge q$ ist und den Fall, dass $m \le q$ ist:
+Sei $w \in L$, so gilt $\exists m,n,p,q \in \mathbb{N}: w = a^m b^n c^p d^q$.
 
 \subsubsection*{$m \ge q$}
-zZ
+ Es gilt ebenfalls:
+\begin{align*}
+&S \vdash_G^{S \rightarrow X_1} \\
+&X_1 \vdash_G^{\text{q mal } X_1 \rightarrow a X_1 d} \\
+&a^q X_1 d^q \vdash_G^{X_1 \rightarrow X_2} \\
+&a^q X_2 d^q \vdash_G^{\text{ m-q mal } X_2 \rightarrow a X_2 c}  \\
+&a^q a^{m-q} X_2 c^{m-q} d^q \vdash_G^{X_2 \rightarrow X_3} \\
+&a^q a^{m-q} X_3 c^{m-q} d^q \vdash_G^{\text{ n-1 mal } X_3 \rightarrow b X_3 c }\\
+&a^q a^{m-q} b^{n-1} X_3 c^{n-1} c^{m-q} d^q \vdash_G^{X_3 \rightarrow bc} \\
+&a^q a^{m-q} b^{n-1} bc c^{n-1} c^{m-q} d^q = \\
+&a^m b^n c^{n + m - q} d^q =^{\text{Da p = m + n -q}} \\
+&a^m b^n c^p d^q \\
+\end{align*}
+
 \subsubsection*{$m \leq q$}
-zZ
+\begin{align*}
+&S 																			\vdash_G^{S \rightarrow X_1} \\
+&X_1 																		\vdash_G^{\text{m mal } X_1 \rightarrow a X_1 d} \\
+&a^m X_1 d^m 														\vdash_G^{X_1 \rightarrow X_{2'} } \\
+&a^m X_{2'} d^m					 								\vdash_G^{\text{ q-m mal } X_{2'} \rightarrow b X_{2'} d}  \\
+&a^m b^{q-m} X_{2'} d^{q-m} d^m 						\vdash_G^{X_{2'} \rightarrow X_3} \\
+&a^m b^{q-m} X_3 d^{q-m} d^m							 \vdash_G^{\text{ p-1 mal } X_3 \rightarrow b X_3 c }\\
+&a^m b^{q-m} b^{p-1} X_3 c^{p-1} d^{q-m} d^m \vdash_G^{X_3 \rightarrow bc} \\
+&a^m b^{q-m} b^{p-1} bc c^{p-1} d^{q-m} d^m	 = \\
+&a^m b^{p+q-m}c^{p} d^{q}	 =^{\text{Da n = p+q-m}} \\
+&a^m b^n c^p d^q \\
+\end{align*}
+
+
+Hierbei ist zu beachten, dass falls einer der Werte 0 ist direkt zum nächsten Resolutionsschritt übergegangen wird, bzw dass die Gesamtresolution mit einer Resolution nach einem Ergebnis ohne Variable beendet wird.
 \subsection*{G ist kontextfrei}
-zu Zeigen
+Da alle Regeln aus G die Form haben, dass sie einer Variable eine Transition zuordnen ist diese Grammatik und damit auch die Sprach L kontextfrei.
 
 \section*{5.4}
 
