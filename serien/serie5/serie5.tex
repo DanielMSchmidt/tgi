@@ -63,11 +63,25 @@
 @David: FILL ME!
 
 \section*{5.3}
-@ Daniel Fill me! (siehe Zettel)
+Um zu zeigen, dass die Sprache L kontextfrei ist müssen wir eine Grammatik G finden, die L erzeugt und kontextfrei ist.
+
+Sei G gegeben als $G = (\{ S,  X_1, X_2, X_{2'}, X_3 \},\{a,b,c,d\}, P, S )$ wobei P definiert ist durch:
+
+\begin{align*}
+S &\rightarrow X_1 \\
+X_1 &\rightarrow ad \mid a X_1d \mid X_2 \mid X_{2'} \\
+X_2 &\rightarrow ac \mid a X_2 c \mid X_3 \\
+X_{2'} &\rightarrow bd \mid b X_{2'} d \mid X_3 \\
+X_3 &\rightarrow bc \mid b X_3 c
+\end{align*}
 
 \subsection*{G erzeugt L}
-zu Zeigen
+Es gilt zu zeigen, dass jedes Wort in L durch G erzeugt werden kann. Hierzu unterscheiden wir den Fall, dass $m \ge q$ ist und den Fall, dass $m \le q$ ist:
 
+\subsubsection*{$m \ge q$}
+zZ
+\subsubsection*{$m \leq q$}
+zZ
 \subsection*{G ist kontextfrei}
 zu Zeigen
 
