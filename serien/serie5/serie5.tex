@@ -63,6 +63,7 @@
 @David: FILL ME!
 
 \section*{5.3}
+@ Daniel Fill me! (siehe Zettel)
 Um zu zeigen, dass eine Sprache kontextfrei ist zeigen wir, dass es eine Grammatik gibt die Kontextfrei ist und diese Sprache erzeugt.
 Diese definieren wir wie folgt:
 
@@ -142,5 +143,35 @@ Da $\mid f(v) \mid = n$ kann die Induktionsvoraussetzung angewandt werden, also 
 \end{align*}
 
 \subsection*{Regulär}
-zu Zeigen: Ist L regulär, so ist auch f(L) regulär
+Um dies zu zeigen zeigen wir, dass f(L) eine endliche Anzahl an Äquivalenzklassen hat. Hierzu definieren wir die Äquivalenzrelation $\sim$ auf $f(\Sigma^*)\subseteq \tau^*$ definiert als:
+\begin{align*}
+\sim = \{(a,b) \mid \exists x,y \in \Sigma^*: f(x) = a \wedge f(y) = b \wedge x = y \}
+\end{align*}
+Es gilt zu zeigen, dass dies eine Äquivalenzrelation ist:
+
+\subsubsection*{Reflexiv}
+\begin{align*}
+a \sim a &\Longleftrightarrow^{Def. \sim} \exists x,y \in \Sigma^*: f(x) = a \wedge f(y) = a \wedge x = y \\
+&\Longleftrightarrow^{Setze y := x} \exists x \in \Sigma^*: f(x) = a \\
+&\Longleftrightarrow^{Da a \in f(\Sigma^*)} wahr
+\end{align*}
+
+\subsubsection*{Symetrisch}
+\begin{align*}
+a \sim b &\Longleftrightarrow^{Def. \sim} \exists x,y \in \Sigma^*:  f(x) = a \wedge f(y) = b \wedge x = y \\
+&\Longleftrightarrow^{Umbenennung} \exists x,y \in \Sigma^*:  f(x) = b \wedge f(y) = a \wedge x = y \\
+&\Longleftrightarrow^{Def. \sim} b \sim a
+\end{align*}
+
+\subsubsection*{Transitiv}
+\begin{align*}
+&a \sim b \wedge b \sim c \\
+&\Longleftrightarrow^{Def. \sim} \exists x,y \in \Sigma^*:  f(x) = a \wedge f(y) = b \wedge x = y \wedge \exists x',y' \in \Sigma^*:  f(x') = b \wedge f(y') = c \wedge x' = y' \\ 
+&\Longleftrightarrow^{Setze x' := x} \exists x,y,y' \in \Sigma^*:  f(x) = a \wedge f(y) = b \wedge x = y \wedge  f(x) = b \wedge f(y') = c \wedge x = y' \\ 
+&\Longleftrightarrow \exists x,y' \in \Sigma^*:  f(x) = a  \wedge f(y') = c \wedge y = y' \\
+&\Longleftrightarrow^{Def. \sim} a \sim c
+\end{align*}
+
+Somit ist $\sim$ eine Äquivalenzrelation auf $f(\Sigma^*)$. Da f eine Funktion ist und einer Eingabe nur eine Ausgabe zugeordnet ist kann die Anzahl der Äquivalenzklassen von $\sim$ nur kleiner gleich deren von = sein, denn es fallen durch doppelt getroffene Elemente in $f(\Sigma^*)$ höchstens Äquivalenzklassen zusammen, es entstehen aber keine neuen. Da L aber regulär ist gibt es eine endliche Anzahl an Äquivalenzklassen, also hat f(L) auch eine endliche Anzahl an Äquivalenzklassen und ist damit regulär.
+
 \end{document}
