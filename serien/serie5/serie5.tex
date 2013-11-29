@@ -60,7 +60,34 @@
 \fancyfoot[C]{\thepage}
 
 \section*{5.2}
-@David: FILL ME!
+Sei G die kontextfreie Sprache von $L = \{w | w^\top = w\}$.
+Sei $G=({S, X}, {a,b,c,d}, P, S)$, wobei P definiert ist durch:\\ 
+\begin{align*}
+S &\rightarrow \epsilon | X\\
+X &\rightarrow a|b|c|d|aa|bb|cc|dd|aXa|bXb|cXc|dXd\\
+\end{align*}
+
+\subsection*{G erzeugt L}
+Das G die Sprache L erzeugt wird wie folgt induktiv gezeigt:
+
+\textbf{Induktions Anfang:}\\
+Für $w \in L$ mit $|w| \leq 2$ gilt:
+\begin{align*}
+\text{F\"ur } \epsilon &\in L \text{ gilt } S \rightsquigarrow X \rightsquigarrow \epsilon \\
+\text{F\"ur } a &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow a\\
+\text{F\"ur } b &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow b\\
+\text{F\"ur } c &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow c\\
+\text{F\"ur } d &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow d\\
+\text{F\"ur } aa &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow aa\\
+\text{F\"ur } bb &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow bb\\
+\text{F\"ur } cc &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow cc\\
+\text{F\"ur } dd &\in L   \text{ gilt }      S \rightsquigarrow X \rightsquigarrow dd\\
+\end{align*}
+\textbf{Induktions Behauptung:}\\
+Es gibt ein $w \in L$ das von der Grammatik erzeugt wird.\\
+\textbf{Induktions Schluss:}\\
+Sei $w \in L$ und von $G$ erzeugbar. Weiter sei $y \in \{a,b,c,d\}$ dann gilt $ywy \in L$ da $(ywy)^\top = ywy$.
+F\"ur $ywy \in L$ gilt $S \rightsquigarrow X \rightsquigarrow yXy$. Nach der Induktionsbehauptung kann $w$ durch $G$ erzeugt werden und damit das $X$ zu einem Ausdruck der in $L$ ist aufgel"ost werden.
 
 \section*{5.3}
 Um zu zeigen, dass die Sprache L kontextfrei ist müssen wir eine Grammatik G finden, die L erzeugt und kontextfrei ist.
