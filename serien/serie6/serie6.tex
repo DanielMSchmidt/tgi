@@ -1,0 +1,96 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{url,graphicx,tabularx,array,geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{paralist}
+\usepackage{latexsym}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{color}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+\pagestyle{fancy}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\setlength{\parskip}{1ex} %--skip lines between paragraphs
+\setlength{\parindent}{0pt} %--don't indent paragraphs
+
+%-- Commands for header
+\newcommand{\headerline}{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}\hline\\\end{tabularx}\\[-0.5cm]}
+\newcommand{\headerleftright}[2]{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}#1%
+& #2\\\end{tabularx}\\[-0.5cm]}
+%\linespread{2} %-- Uncomment for Double Space
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{document}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\fancyhead[L]{
+\headerleftright{\textbf{TGI}}{David Elvers, Daniel Schmidt}}
+\fancyfoot[C]{\thepage}
+
+\section*{6.3)}
+\subsection*{Schritt 1:} 
+\begin{align*}
+S &\rightarrow aAA|BbB \\
+A &\rightarrow Bb|Ba|a \\
+B &\rightarrow bBC|bAC \\
+C &\rightarrow Bb|a \\
+\end{align*}
+
+\subsection*{Schritt 2:}
+\begin{align*}
+S &\rightarrow X_aAA|BX_bB \\
+A &\rightarrow BX_b|BX_a|a \\
+B &\rightarrow X_bBC|X_bAC \\
+C &\rightarrow BX_b | a \\
+X_a &\rightarrow a \\
+X_b &\rightarrow b \\
+\end{align*}
+
+\subsection*{Schritt 3:}
+\begin{align*}
+S &\rightarrow X_aA_1|BB_1 \\
+A_1 &\rightarrow AA \\
+B_1 &\rightarrow X_bB \\
+A &\rightarrow BX_b | BX_a | a \\
+B &\rightarrow X_bB_2|X_bA_2 \\
+B_2 &\rightarrow BC \\
+A_2 &\rightarrow AC \\
+C &\rightarrow BX_b|a \\
+X_a &\rightarrow a \\
+X_b &\rightarrow b \\
+\end{align*}
+
+
+\end{document}
