@@ -59,71 +59,10 @@
 \headerleftright{\textbf{TGI}}{David Elvers, Daniel Schmidt}}
 \fancyfoot[C]{\thepage}
 
+\section*{6.3}
+Sei die $L_G$ die Sprache die durch die gegebene Grammatik erzeugt wird, so ist diese definierbar als:
 
-\section*{6.2)}
-\textbf{Akzeptierte Ausdr\"ucke:}
-\begin{enumerate}[]
-\item $ba(a^*b^*)^*$
-\item $bb(a^*b^*)^*$
-\item $aaa(a^*b^*)^*$
-\item $aab(a^*b^*)^*$
-\item $aba(a^*b^*)^*$
-\item $abb(a^*b^*)^*$
-\end{enumerate}
-\textbf{Daraus ableitbare Grammatik:}
 \begin{align*}
-S &\rightarrow X \\
-X &\rightarrow aY|bQ \\
-Y &\rightarrow aQ|bQ \\
-Q &\rightarrow a|b|aQ|bQ \\
+Fill^m_e
 \end{align*}
-
-
-\section*{6.3)}
-\subsection*{Schritt 1:} 
-\begin{align*}
-S &\rightarrow aAA|BbB \\
-A &\rightarrow Bb|Ba|a \\
-B &\rightarrow bBC|bAC \\
-C &\rightarrow Bb|a \\
-\end{align*}
-
-\subsection*{Schritt 2:}
-\begin{align*}
-S &\rightarrow X_aAA|BX_bB \\
-A &\rightarrow BX_b|BX_a|a \\
-B &\rightarrow X_bBC|X_bAC \\
-C &\rightarrow BX_b | a \\
-X_a &\rightarrow a \\
-X_b &\rightarrow b \\
-\end{align*}
-
-\subsection*{Schritt 3:}
-\begin{align*}
-S &\rightarrow X_aA_1|BB_1 \\
-A_1 &\rightarrow AA \\
-B_1 &\rightarrow X_bB \\
-A &\rightarrow BX_b | BX_a | a \\
-B &\rightarrow X_bB_2|X_bA_2 \\
-B_2 &\rightarrow BC \\
-A_2 &\rightarrow AC \\
-C &\rightarrow BX_b|a \\
-X_a &\rightarrow a \\
-X_b &\rightarrow b \\
-\end{align*}
-
-\section*{6.4)}
-
-Die durch die gegeben Grammatik erzeugte Sprache ist definiert durch:
-
-\begin{equation}
-L := \{ w \in \Sigma^* \mid \text{   } \mid w \mid_{a} = \mid w \mid_{b} \wedge \forall u,v \in \Sigma^*: u \cdot v = w \Rightarrow \mid u \mid_{a} \ge \mid u \mid_{b} \}
-\end{equation}
-
-\subsection*{L $\subseteq$ L(G)}
-zz Jedes Element aus L ist in L(G)
-
-
-\subsection*{L(G) $\subseteq$ L}
-zz Jedes Element aus L(G) ist in L
 \end{document}
