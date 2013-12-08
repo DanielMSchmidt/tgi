@@ -120,10 +120,46 @@ Die durch die gegeben Grammatik erzeugte Sprache ist definiert durch:
 L := \{ w \in \Sigma^* \mid \text{   } \mid w \mid_{a} = \mid w \mid_{b} \wedge \forall u,v \in \Sigma^*: u \cdot v = w \Rightarrow \mid u \mid_{a} \ge \mid u \mid_{b} \}
 \end{equation}
 
-\subsection*{L $\subseteq$ L(G)}
-zz Jedes Element aus L ist in L(G)
+Nun gilt es zu zeigen, dass L = L(G) ist. Dies zeigen wir per Induktion:
 
+\subsection*{$w \in L \Rightarrow w \in L(G)$}
+\subsubsection*{Induktionsanfang}
+Sei $\mid w \mid = 0$, so folgt daraus, dass $w = \epsilon$ sein muss. Dementsprechend kann w von S aus resolviert werden, ist also in L.\\
+Für w gilt ebenfalls $w = 0 = \mid w \mid_a = \mid w \mid_b $. Da es lediglich ein u und v gibt, sodass $ \epsilon = uv$ gilt und zwar $\epsilon := u := v$.
 
-\subsection*{L(G) $\subseteq$ L}
-zz Jedes Element aus L(G) ist in L
+\subsubsection*{Induktionsvoraussetzung}
+$ w \in L \wedge \mid w \mid = n  \Rightarrow w \in L(G)$
+
+\subsubsection*{Induktionsschluss}
+Sei $n \in \mathbb{N}$ und $\mid w \mid = n +2 \ge 2$. Dann ist w = aubv mit $u,v \in L$, da w mit einem a beginnen muss, um die Bedingung $\forall u,v \in \Sigma^*: uv = w \Rightarrow \mid u \mid_a \ge \mid u \mid_b$ zu erfüllen. Dementsprechend muss es aber Ableitungen geben, sodass gilt: 
+
+\begin{align*}
+S &\vdash^* aSbS \\
+&= aubv \\
+&= w
+\end{align*}
+
+\subsection*{$w \in L(G) \Rightarrow w \in L$}
+\subsubsection*{Induktionsanfang}
+Sei $\mid w \mid = 0$, so folgt daraus, dass $w = \epsilon$ sein muss. Dementsprechend kann w von S aus resolviert werden, ist also in L.\\
+Für w gilt ebenfalls $w = 0 = \mid w \mid_a = \mid w \mid_b $. Da es lediglich ein u und v gibt, sodass $ \epsilon = uv$ gilt und zwar $\epsilon := u := v$.
+
+\subsubsection*{Induktionsvoraussetzung}
+$w \in L(G) \wedge \mid w \mid = n  \Rightarrow w \in L$
+
+\subsubsection*{Induktionsschluss}
+Sei w der Länge n+2, so muss es im Vergleich zu einem w' der Länge n eine weitere Resolution der Form 
+
+\begin{align*}
+S \vdash aSbS
+\end{align*}
+
+geben. Dementsprechend muss es in w Teilwörter geben, sodass w = aubv gilt.
+Das beide Resolvierbar sind wissen wir da $\mid u \mid \le n \wedge \mid v \mid \le n \wedge \mid uv \mid = n$ gilt. Daher gilt auch $\mid u \mid_a = \mid u \mid_b$ und $\mid v \mid_a = \mid v \mid_b$. Also gilt $\mid w  \mid_a = 1 + \mid uv \mid_a = 1 + \mid uv \mid_b = \mid w \mid_b$. Da a vor b angefügt wurde gilt ebenfalls 
+
+\begin{equation}
+\forall x,y \in \Sigma^*: x \cdot y = w \Rightarrow \mid x \mid_{a} \ge \mid y \mid_{b}
+\end{equation}
+
+Dementsprechend ist $w \in L$.
 \end{document}
