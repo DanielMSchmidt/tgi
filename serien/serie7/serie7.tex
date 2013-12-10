@@ -1,0 +1,81 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{url,graphicx,tabularx,array,geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{paralist}
+\usepackage{latexsym}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{color}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+\pagestyle{fancy}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\setlength{\parskip}{1ex} %--skip lines between paragraphs
+\setlength{\parindent}{0pt} %--don't indent paragraphs
+
+%-- Commands for header
+\newcommand{\headerline}{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}\hline\\\end{tabularx}\\[-0.5cm]}
+\newcommand{\headerleftright}[2]{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}#1%
+& #2\\\end{tabularx}\\[-0.5cm]}
+%\linespread{2} %-- Uncomment for Double Space
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{document}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\fancyhead[L]{
+\headerleftright{\textbf{TGI}}{David Elvers, Daniel Schmidt}}
+\fancyfoot[C]{\thepage}
+
+\section*{7.2}
+Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_1$ kontextfrei ist. \\
+So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_1$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_1$ erzeugt.
+Zerteilt man ein $z \in L(G_1)$, sodass $z = uvwxy$ gilt. Setzt man nun die Variablen $u := w := x := y := \epsilon$, so ist keine der Bedingungen des Pumping-Lemmas verletzt. Weiterhin gilt
+
+\begin{equation}
+z \in L_1 \Rightarrow z \in L(G_1) \Longleftrightarrow z = uvwxy = v \Longleftrightarrow \exists k \in \mathbb{N}: \text{k ist prim} \wedge v = a^k
+\end{equation}
+
+Wenden wir nun das Pumping-Lemma an, so muss ebenfalls gelten
+
+\begin{equation}
+v^2 \in L(G_1) \Longleftrightarrow \exists k': \text{k' ist prim} \wedge v^2 = a^{k'}
+\end{equation}
+
+Da dieses $k' = k \cdot 2$ sein müsste ist dies keine Primzahl mehr, es gibt also einen Widerspruch.
+\section*{7.3}
+\section*{7.4}
+
+\end{document}
