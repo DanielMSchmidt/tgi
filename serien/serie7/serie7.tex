@@ -63,6 +63,25 @@
 Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_1$ kontextfrei ist. \\
 So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_1$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_1$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so gilt:
 
+\begin{align*}
+&\exists uvwxy \in \Sigma^*: z = uvwxy \\
+\Longleftrightarrow &\exists jklmn \in \mathbb{N}_{\ge 0}: z = a^j a^k  a^l  a^m  a^n \\
+\Longleftrightarrow &\exists jklmn \in \mathbb{N}_{\ge 0}: z = a^{j+k+l+m+n}
+\end{align*}
+
+Da $z \in L_1$ muss (j+k+l+m+n) prim sein. Nach dem Pumping-Lemma muss auch für ein beliebiges i $u v^i w x^i y \in L_1$ sein. Setze i:= (j+l+n), so muss folgendes $z' = u v^{(j+l+n)} w x^{(j+l+n)} y \in L_1$ gelten. Zudem gilt:
+
+\begin{align*}
+z' &= u v^{(j+l+n)} w x^{(j+l+n)} y \\
+&= a^j a^{(j+l+n) \cdot k} a^l a^{(j+l+n) \cdot m} a^n \\
+&= a^{j + (j+l+n) \cdot k + l + (j+l+n) \cdot m + n} \\
+&= a^{(j+l+n) \cdot (k+m+1)} \\
+&\Longleftrightarrow (j+l+n) \cdot (k+m+1) \text{ prim} \\
+&\Longleftrightarrow^1 \text{WSP}
+\end{align*}
+
+1) führt zum Widerspruch, da $vx \neq \epsilon \Longleftrightarrow k+m \ge 1$ gilt.
+Somit ist die Sprache nicht kontextfrei.
 \section*{7.3}
 Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_2$ kontextfrei ist. \\
 So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_2$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_2$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so gilt:
