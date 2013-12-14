@@ -61,33 +61,11 @@
 
 \section*{7.2}
 Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_1$ kontextfrei ist. \\
-So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_1$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_1$ erzeugt.
-Zerteilt man ein $z \in L(G_1)$, sodass $z = uvwxy$ gilt und setzt man nun die Variablen $u := w := x := y := \epsilon$, so ist keine der Bedingungen des Pumping-Lemmas verletzt und es gilt:
-
-\begin{equation}
-z \in L_1 \Rightarrow z \in L(G_1) \Longleftrightarrow z = uvwxy = v \Longleftrightarrow \exists k \in \mathbb{N}: \text{k ist prim} \wedge v = a^k
-\end{equation}
-
-Wenden wir nun das Pumping-Lemma an, so muss ebenfalls gelten
-
-\begin{equation}
-v^2 \in L(G_1) \Longleftrightarrow \exists k': \text{k' ist prim} \wedge v^2 = a^{k'}
-\end{equation}
-
-Da dieses $k' = k \cdot 2$ sein müsste ist dies keine Primzahl mehr, es gibt also einen Widerspruch
+So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_1$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_1$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so gilt:
 
 \section*{7.3}
 Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_2$ kontextfrei ist. \\
-So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_2$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_2$ erzeugt.
-Zerteilt man ein $z \in L(G_2)$, sodass $z = uvwxy$ gilt und setzt man nun die Variablen $u := y := \epsilon$, $v := ab$, $w := a$ und $x := b$, so ist keine der Bedingungen des Pumping-Lemmas verletzt und es gilt:
-
-
-\begin{equation}
-v^2 w x^2 = abab a bb \notin L(G_2)  \Longleftrightarrow v^2 w x^2 \notin L_2
-\end{equation}
-
-Dies ist ein Widerspruch zum Pumping-Lemma.
-
+So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_2$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_2$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so gilt:
 \section*{7.4}
 
 \end{document}
