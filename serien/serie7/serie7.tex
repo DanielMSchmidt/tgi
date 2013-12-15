@@ -84,7 +84,26 @@ z' &= u v^{(j+l+n)} w x^{(j+l+n)} y \\
 Somit ist die Sprache nicht kontextfrei.
 \section*{7.3}
 Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_2$ kontextfrei ist. \\
-So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_2$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_2$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so gilt:
+So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_2$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_2$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so sei z zerlegt als:
+
+\begin{align*}
+z &:= uvwxy \\
+u &:= a^j \\
+v &:= b^k \\
+w &:= \epsilon \\
+x &:= a^j \\
+y &:= b^k \\
+j &\neq k 
+\end{align*}
+
+So ist $z \in L_2$, dementsprechend müsste nach dem Pumping-Lemma ebenfalls $z' = u v^i w x^i y \in L_2$ sein, jedoch gilt:
+
+\begin{align*}
+z' &= u v^i w x^i y \\
+&= a^j b^{k \cdot i} \epsilon a^{j \cdot i} b^k \\
+\end{align*}
+
+Da  $k \neq j \Rightarrow (k \cdot i) \neq (j \cdot i)$ ist $z' \notin L_2$, dementsprechend ist die Sprache nicht kontextfrei.
 \section*{7.4}
 
 \end{document}
