@@ -61,7 +61,7 @@
 
 \section*{7.2}
 Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_1$ kontextfrei ist. \\
-So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_1$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_1$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so gilt:
+So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_1$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_1$ erzeugt. Sei n zudem die Pumping-konstante und $|z| \ge n$, so gilt:
 
 \begin{align*}
 &\exists uvwxy \in \Sigma^*: z = uvwxy \\
@@ -84,7 +84,14 @@ z' &= u v^{(j+l+n)} w x^{(j+l+n)} y \\
 Somit ist die Sprache nicht kontextfrei.
 \section*{7.3}
 Wir beweisen per Gegenbeweis und nehmen hierzu an, dass $L_2$ kontextfrei ist. \\
-So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_2$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_2$ erzeugt. Sei n zudem die Pumping-konstante und $\mid z \mid \ge n$, so gilt:
+So lässt sich das Pumping-Lemma anwenden und es gibt eine kontextfreie Grammatik $G_2$ mit k Variablen und rechter Regelseite der Länge $\le k$ die $L_2$ erzeugt. Sei n zudem die Pumping-konstante und $|z| \ge n$, so gilt:
 \section*{7.4}
+Sei $n$ die Pumping Lemma Zahl zu $L$. Jedes Wort $ez \in L$ der L\"ange $\leq n$ l\"asst sich zerlegen in $uvwxy$ mit den Eigenschaften 1,2,3 des Punmping Lemmas. Da $L \subset \{a\}^*$ f\"ur ein Zeichen $a$ gilt, k\"onnen diese Eigenschaften einfacher formuliert werden:
+Es gilt $z= a^m = a^ka^l$, wobei $m \geq n$,$k+l = m$,$ 1 \leq l \leq n$, und $a^ka^{il} \in L$ f\"ur $i \in \mathrm{N}$. F\"ur jedes $z \in L$,$|z| \geq n$, insgesamt nur endlich viele $l$-Werte vor, sagen wir $l_1,l_2,...,l_p$. Sei $q \geq n$ eine Zahl, die vor allen $l_i$ geteilt wird (etwa $q = n!$); und sei $q' \geq q$ eine"geeignet gew\"ahlte" Zahl, die wir noch sp\"ater bestimmen. Betrachte die Sprache
+\begin{equation*}
+L' = \{ x \in L| |x| \le q\} \cup \{a^ra^iq | q \leq r\leq q' , a^r \in L, i \in \mathrm{N} \}
+\end{equation*}
 
+Dann ist $L'$ sicherlich regul\"ar, und es ist klar, dass $L' \subset L$ gilt. Wir zeigen wenn $q'$ gen\"ugent gro\ss ist, dann gilt auch $L \subset L'$. Bis zu W\"ortern der L\"ange $\le q$ stimmen $L$ und $L'$ \"uberein. Sei nun $z = a^r$ in $L$ gibt mit $q \leq r \leq q'$ und $r \equiv m (\text{mod}q)$. Damit ist nun alles klar: Wir w\"ahlen $q'$ so gro\ss, dass die W\"orter in $L$ mit den L\"angen $q,...,q'$ alle m\"oglichen Reste modulo $q$ bilden, die unter allen W\"ortern in $L$ (der L\"ange $\geq q$) \"uberhaupt auftreten. Da es nur endlich viele solche Reste gibt, gibt es eine solche endliche Zahl $q'$.  
+ 
 \end{document}
