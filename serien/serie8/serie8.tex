@@ -18,6 +18,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{ upgreek }
 
 \setlength{\parskip}{1ex} %--skip lines between paragraphs
 \setlength{\parindent}{0pt} %--don't indent paragraphs
@@ -60,6 +61,28 @@
 \fancyfoot[C]{\thepage}
 
 \section*{8.2}
+Sei a = $(Q, \Sigma, \Upgamma, q_0, \delta, F)$ eine Turingmaschine mit $Q = \{ q_0, q_1, q_2, q_3, q_{3'}, q_4, q_5 \}$, $\Sigma = \{ a,b,c \}$, $\Upgamma = \{ a,b,c,a',b',c', \square \}$ und $F = \{ q_4 \}$. Sei zudem $\delta$ bestimmt durch:
+
+\begin{align*}
+\delta(q_0, \square) = (\square, r, q_0) &\mid \text{ignoriere Lücken auf der Suche nach a} \\
+\delta(q_0, a) = (a', r, q_1) &\mid \text{a wurde gefunden, suche ein b} \\
+\delta(q_0, a') = (a', r, q_0) &\mid \text{suche das nächste a} \\
+\delta(q_0, b') = (b', l, q_{3'}) &\mid \text{alle a wurden verarbeitet, teste ob das Wort korrekt ist} \\
+\delta(q_1, a) = (a, r, q_1) &\mid \text{suche das nächste b} \\
+\delta(q_1, a') = (a', r, q_1) &\mid \text{suche das nächste b} \\
+\delta(q_1, b) = (b', r, q_2) &\mid \text{b wurde gefunden, suche ein c} \\
+\delta(q_2, b) = (b, r, q_2) &\mid \text{suche das nächste c} \\
+\delta(q_2, b') = (b', r, q_2) &\mid \text{suche das nächste c} \\
+\delta(q_2, c) = (c', r, q_2) &\mid \text{c wurde gefunden, gehe wieder an den Anfang} \\
+\forall X \in \Upgamma \backslash \square: \delta(q_3, X) = (X, l, q_3) &\mid \text{gehe an den Anfang} \\
+\delta(q_3, \square) = (\square, r, q_0) &\mid \text{Anfang des Wortes gefunden, suche das nächste a} \\
+\forall X \in \Upgamma\backslash \square: \delta(q_{3'}, X) = (X, l, q_{3'}) &\mid \text{gehe an den Anfang} \\
+\delta(q_{3'}, \square) = (\square, r, q_4) &\mid \text{Anfang des Wortes gefunden, überprüfe die Verarbeitung} \\
+\forall X \in \Upgamma \backslash (\square \cup \Sigma): \delta(q_4, X) = (X, r, q_4) &\mid \text{überprüfe ob nur verarbeitete Symbole auftauchen} \\
+\delta(q_4, \square) = (\square, r, q_5) &\mid \text{Ende des Wortes und kein Eingabesymbol wurde gefunden} \\
+\end{align*}
+
+so gilt $L(a) = \{a^n b^n c^n \mid n \in \mathbb{N} \}$
 \section*{8.3}
 \section*{8.4}
  
