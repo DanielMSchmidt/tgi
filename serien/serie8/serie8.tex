@@ -85,5 +85,25 @@ Sei a = $(Q, \Sigma, \Upgamma, q_0, \delta, F)$ eine Turingmaschine mit $Q = \{ 
 so gilt $L(a) = \{a^n b^n c^n \mid n \in \mathbb{N} \}$
 \section*{8.3}
 \section*{8.4}
- 
+\subsection*{Behauptung}
+Der Schnitt einer kontextfreien Sprache mit einer regulären ist kontextfrei.
+\subsection*{Beweis}
+Sei $L_1$ eine kontextfreie Sprache, so existiert ein Kellerautomat $a_1$, sodass $L(a_1) = L_1$ gilt. Sei $a_1 = (Q_1, \Sigma, \Upgamma, q_{0_1}, Z_0, \Delta_1, F_1)$ \\
+Sei $L_2$ eine reguläre Sprache, so existiert ein NEA  $a_{2'}$, sodass $L(a_{2'}) = L_2$ gilt. 
+Da man nach Satz 1.19 zu jedem NEA  $a_{2'}$ einen DEA $a_2$ finden kann, sodass gilt $a_{2'} = a_2 \Rightarrow L(a_2) = L_2$. Sei $a_2 = (Q_2, \Sigma, q_{0_2}, \Delta_2, F_2)$ \\
+Nach Bemerkung 1.9 ist der Schnitt zweier NEAs der Schnitt beider Sprachen, demnach gilt es zu zeigen, dass $L(a_1 \times a_2)$ kontextfrei ist. 
+Nun lässt sich ein Produktautomaten $a_3$ so konstruieren, dass gilt: $a_1 \times a_2 = a_3 = (Q_1 \times Q_2, \Sigma, \Upgamma, (q_{0_1} \times q_{0_2}), Z_0, \Delta, (F_1 \times F_2))$, wobei $\Delta$ definiert, sodass gilt
+
+\begin{align*}
+\forall ((q_1, a, \beta), (p_1, \gamma)) \in \Delta_1 \wedge (q_2, a, p_2) \in \Delta_2: (((q_1, q_2), a, \beta), ((p_1, p_2), \gamma)) \in \Delta
+\end{align*}
+
+und
+
+\begin{align*}
+\forall ((q_1, \epsilon, \beta), (p_1, \gamma)) \in \Delta_1 \wedge (q_2, \delta, q_2) \in \Delta_2: (((q_1, q_2), \epsilon, \beta), ((p_1, q_2), \gamma)) \in \Delta
+\end{align*}
+
+Damit ist $a_3$ ein Kellerautomat, also ist $L(a_3)$ kontextfrei, dadurch gilt die Behauptung.
+\hfill $\Box$\\
 \end{document}
