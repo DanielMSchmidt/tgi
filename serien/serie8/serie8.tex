@@ -85,11 +85,21 @@ Sei a = $(Q, \Sigma, \Upgamma, q_0, \delta, F)$ eine Turingmaschine mit $Q = \{ 
 so gilt $L(a) = \{a^n b^n c^n \mid n \in \mathbb{N} \}$
 \section*{8.3}
 Sei $\mathfrak{A}$ wie in der Aufgabenstellung gegeben, dann kann man die passende Grammatik $G = (\{S,[q_0Z_0q_0],[q_0Xq_0],[q_0Xq_1]\},\{0,1\},P,S)$ konstruieren. Dabei sei $P$ wie folgt definiert: 
+
 \begin{align*}
 S &\rightarrow [q_0Z_0q_0] \big| [q_0Z_0q_1]\\
-[q_0Z_0q_0] &\rightarrow 0[q_0Xq_0][q_0Xq_1]\\
-[q_0Xq_0] &\rightarrow 0[q_0Xq_0][q_0Xq_1]\\
-[q_0Xq_1] &\rightarrow 1\\
+[q_0Z_0q_0] &\rightarrow 0[q_0Xq_0][q_0Z_0q_0] \big| 0[q_0Xq_1][q_1Z_0q_0]\\
+[q_0Z_0q_1] &\rightarrow 0[q_0Xq_0][q_0Z_0q_1] \big| 0[q_0Xq_1][q_1Z_0q_1]\\
+[q_0Xq_0] &\rightarrow 0[q_0Xq_0][q_0Xq_0] \big| 0[q_0Xq_1][q_1Xq_0]\\
+[q_0Xq_1] &\rightarrow 0[q_0Xq_0][q_0Xq_1] \big| 0[q_0Xq_1][q_1Xq_1] \big| 1 \\
+[q_1Z_0q_1] &\rightarrow \epsilon
+\end{align*}
+
+\begin{align*}
+S &\rightarrow [q_0Z_0q_1]\\
+[q_0Z_0q_1] &\rightarrow 0[q_0Xq_1][q_1Z_0q_1]\\
+[q_0Xq_1] &\rightarrow 0[q_0Xq_0][q_0Xq_1] \big| 1\\
+[q_1Z_0q_1] &\rightarrow \epsilon\\
 \end{align*}
 
 \section*{8.4}
