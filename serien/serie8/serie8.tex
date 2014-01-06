@@ -73,7 +73,7 @@ Sei a = $(Q, \Sigma, \Upgamma, q_0, \delta, F)$ eine Turingmaschine mit $Q = \{ 
 \delta(q_1, b) = (b', r, q_2) &\mid \text{b wurde gefunden, suche ein c} \\
 \delta(q_2, b) = (b, r, q_2) &\mid \text{suche das nächste c} \\
 \delta(q_2, b') = (b', r, q_2) &\mid \text{suche das nächste c} \\
-\delta(q_2, c) = (c', r, q_2) &\mid \text{c wurde gefunden, gehe wieder an den Anfang} \\
+\delta(q_2, c) = (c', r, q_3) &\mid \text{c wurde gefunden, gehe wieder an den Anfang} \\
 \forall X \in \Upgamma \backslash \square: \delta(q_3, X) = (X, l, q_3) &\mid \text{gehe an den Anfang} \\
 \delta(q_3, \square) = (\square, r, q_0) &\mid \text{Anfang des Wortes gefunden, suche das nächste a} \\
 \forall X \in \Upgamma\backslash \square: \delta(q_{3'}, X) = (X, l, q_{3'}) &\mid \text{gehe an den Anfang} \\
@@ -92,15 +92,16 @@ S &\rightarrow [q_0Z_0q_0] \big| [q_0Z_0q_1]\\
 [q_0Z_0q_1] &\rightarrow 0[q_0Xq_0][q_0Z_0q_1] \big| 0[q_0Xq_1][q_1Z_0q_1]\\
 [q_0Xq_0] &\rightarrow 0[q_0Xq_0][q_0Xq_0] \big| 0[q_0Xq_1][q_1Xq_0]\\
 [q_0Xq_1] &\rightarrow 0[q_0Xq_0][q_0Xq_1] \big| 0[q_0Xq_1][q_1Xq_1] \big| 1 \\
+[q_1Xq_1] &\rightarrow 1 \\
 [q_1Z_0q_1] &\rightarrow \epsilon
 \end{align*}
 
-\begin{align*}
-S &\rightarrow [q_0Z_0q_1]\\
-[q_0Z_0q_1] &\rightarrow 0[q_0Xq_1][q_1Z_0q_1]\\
-[q_0Xq_1] &\rightarrow 0[q_0Xq_0][q_0Xq_1] \big| 1\\
-[q_1Z_0q_1] &\rightarrow \epsilon\\
-\end{align*}
+%\begin{align*}
+%S &\rightarrow [q_0Z_0q_1]\\
+%[q_0Z_0q_1] &\rightarrow 0[q_0Xq_1][q_1Z_0q_1]\\
+%[q_0Xq_1] &\rightarrow 0[q_0Xq_0][q_0Xq_1] \big| 1\\
+%[q_1Z_0q_1] &\rightarrow \epsilon\\
+%\end{align*}
 
 \section*{8.4}
 \subsection*{Behauptung}
