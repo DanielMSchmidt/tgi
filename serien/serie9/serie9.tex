@@ -1,0 +1,78 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{url,graphicx,tabularx,array,geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{paralist}
+\usepackage{latexsym}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{color}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+\pagestyle{fancy}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ upgreek }
+
+\setlength{\parskip}{1ex} %--skip lines between paragraphs
+\setlength{\parindent}{0pt} %--don't indent paragraphs
+
+%-- Commands for header
+\newcommand{\headerline}{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}\hline\\\end{tabularx}\\[-0.5cm]}
+\newcommand{\headerleftright}[2]{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}#1%
+& #2\\\end{tabularx}\\[-0.5cm]}
+%\linespread{2} %-- Uncomment for Double Space
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{document}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\fancyhead[L]{
+\headerleftright{\textbf{TGI}}{David Elvers, Daniel Schmidt}}
+\fancyfoot[C]{\thepage}
+
+\section*{9.2}
+
+$\mathfrak{A} = (\{q_0,q_1, q_f\}, \{1,0\},\{0,1, \Box \}, \delta, q_0, \Box, \{q_f\})$\\
+Dabei ist $\delta$ wie folgt definiert:
+
+\begin{align*}
+\delta(q_0,0) &= (q_0,0,r)\\
+\delta(q_0,1) &= (q_0,1,r)\\
+\delta(q_0, \Box) &=(q_1,\Box,l)\\
+\delta(q_1, 0) &=(q_f,1,l)\\
+\delta(q_1,1) &= (q_1, 0, l)\\
+\delta(q_1, \Box) &= (q_f,1,n)\\
+\end{align*}
+Dabei dient $q_0$ zum bewegen des Lese/Schreibkopfes nach ganz rechts zum kleinsten Bit und $q_1$ addiert 1 und ändert alle Bits von rechts nach links.
+
+\end{document}
