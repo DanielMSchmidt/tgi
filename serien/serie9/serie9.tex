@@ -78,5 +78,15 @@ Dabei dient $q_0$ zum bewegen des Lese/Schreibkopfes nach ganz rechts zum kleins
 \section*{9.3}
 
 \section*{9.4}
+Sei L eine deterministisch kontextfreie Sprache so gibt es einen DPDA $a = (Q, \Sigma, \Upgamma, q_0, Z_0, \Delta, F)$ für den gilt $L = L(a)$.
+Um zu zeigen, dass Min(L) deterministisch kontextfrei ist gilt es zu zeigen, dass ein DPDA a' existiert für welchen Min(L) = L(a') gilt. \\
+
+Sei $a' = (Q, \Sigma, \Upgamma, q_0, Z_0, \Delta', F)$ mit $\Delta'$ definiert als: 
+
+\begin{align*}
+\Delta' &= \{(q, a, \gamma, \gamma*, q') \mid  (q, a, \gamma, \gamma*, q') \in \Delta \wedge q \notin F \}
+\end{align*}
+
+Somit gilt für jedes von a' erkannte Wort u, dass es kein Wort gibt, welches u als Präfix hat. Dies ist eben die Bedingung der minimalen Sprache, dementsprechend gilt L(a') = Min(L), daher ist Min(L) kontextfrei.
 
 \end{document}
