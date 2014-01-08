@@ -66,12 +66,12 @@ $\mathfrak{A} = (\{q_0,q_1, q_f\}, \{1,0\},\{0,1, \Box \}, \delta, q_0, \Box, \{
 Dabei ist $\delta$ wie folgt definiert:
 
 \begin{align*}
-\delta(q_0,0) &= (q_0,0,r)\\
-\delta(q_0,1) &= (q_0,1,r)\\
-\delta(q_0, \Box) &=(q_1,\Box,l)\\
-\delta(q_1, 0) &=(q_f,1,l)\\
-\delta(q_1,1) &= (q_1, 0, l)\\
-\delta(q_1, \Box) &= (q_f,1,n)\\
+\delta(q_0,0) = (q_0,0,r) & \text{Suche das LSB (least significant bit)}\\
+\delta(q_0,1) = (q_0,1,r) & \text{Suche das LSB (least significant bit)}\\
+\delta(q_0, \Box) =(q_1,\Box,l) & \text{Found the LSB (least significant bit)}\\
+\delta(q_1, 0) =(q_f,1,l) & \text{Wenn das LSB 0 ist addiere einen drauf und wir sind fertig}\\
+\delta(q_1,1) = (q_1, 0, l) & \text{Wenn das LSB 1 ist setze es auf 0 und addiere es auf das nächste Element}\\
+\delta(q_1, \Box) = (q_f,1,n) & \text{Wenn das Wort zu kurz ist setze eine 1 vor das MSB (most significant bit)}\\
 \end{align*}
 Dabei dient $q_0$ zum bewegen des Lese/Schreibkopfes nach ganz rechts zum kleinsten Bit und $q_1$ addiert 1 und ändert alle Bits von rechts nach links.
 
