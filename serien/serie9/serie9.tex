@@ -66,16 +66,62 @@ $\mathfrak{A} = (\{q_0,q_1, q_f\}, \{1,0\},\{0,1, \Box \}, \delta, q_0, \Box, \{
 Dabei ist $\delta$ wie folgt definiert:
 
 \begin{align*}
-\delta(q_0,0) = (q_0,0,r) & \text{Suche das LSB (least significant bit)}\\
-\delta(q_0,1) = (q_0,1,r) & \text{Suche das LSB (least significant bit)}\\
-\delta(q_0, \Box) =(q_1,\Box,l) & \text{Found the LSB (least significant bit)}\\
-\delta(q_1, 0) =(q_f,1,l) & \text{Wenn das LSB 0 ist addiere einen drauf und wir sind fertig}\\
-\delta(q_1,1) = (q_1, 0, l) & \text{Wenn das LSB 1 ist setze es auf 0 und addiere es auf das nächste Element}\\
-\delta(q_1, \Box) = (q_f,1,n) & \text{Wenn das Wort zu kurz ist setze eine 1 vor das MSB (most significant bit)}\\
+\delta(q_0,0) = (q_0,0,r) \hfill &\text{Suche das LSB (least significant bit)}\\
+\delta(q_0,1) = (q_0,1,r) \hfill &\text{Suche das LSB (least significant bit)}\\
+\delta(q_0, \Box) =(q_1,\Box,l) \hfill &\text{Found the LSB (least significant bit)}\\
+\delta(q_1, 0) =(q_f,1,l) \hfill &\text{Wenn das LSB 0 ist addiere einen drauf und wir sind fertig}\\
+\delta(q_1,1) = (q_1, 0, l) \hfill &\text{Wenn das LSB 1 ist setze es auf 0 und addiere es auf das nächste Element}\\
+\delta(q_1, \Box) = (q_f,1,n) \hfill &\text{Wenn das Wort zu kurz ist setze eine 1 vor das MSB (most significant bit)}\\
 \end{align*}
 Dabei dient $q_0$ zum bewegen des Lese/Schreibkopfes nach ganz rechts zum kleinsten Bit und $q_1$ addiert 1 und ändert alle Bits von rechts nach links.
 
 \section*{9.3}
+\begin{align*}
+\delta(q_0,\{0,0\}) &= (q_0,\{1,0\},rr)\\
+\delta(q_0,\{0,1\}) &= (q_0,\{1,1\},rr)\\
+\delta(q_0,\{0,\Box\}) &= (q_0,\{1,\Box\},rn)\\
+\delta(q_0,\{1,0\}) &= (q_0,\{0,0\},rr)\\
+\delta(q_0,\{1,1\}) &= (q_0,\{0,1\},rr)\\
+\delta(q_0,\{1,\Box\}) &= (q_0,\{0,\Box\},rn)\\
+\delta(q_0,\{\Box,0\}) &= (q_0,\{\Box,0\},nr)\\
+\delta(q_0,\{\Box,1\}) &= (q_0,\{\Box,1\},nr)\\
+\delta(q_0,\{\Box,\Box\}) &= (q_1,\{\Box,\Box\},ll)\\
+\\
+\delta(q_1,\{0, \Box\}) &= (q_2, \{1,\Box\}, ln)\\
+\delta(q_1,\{1, \Box\}) &= (q_1, \{0,\Box\}, ln)\\
+\delta(q_1,\{\Box, \Box\}) &= (q_2, \{1,\Box\}, ln)\\
+\\
+\delta(q_2,\{0, \Box\}) &= (q_2, \{0, \Box\}, rn)\\
+\delta(q_2, \{1, \Box\}) &= (q_2, \{1, \Box\}, rn)\\
+\delta(q_2, \{\Box, \Box\}) &= (q_3, \{\Box, \Box\}, nn)\\
+\\
+\delta(q_3, \{0,0\}) &=(q_3, \{0,\Box\},ll)\\
+\delta(q_3, \{0,1\}) &=(q_3, \{1,\Box\},ll)\\
+\delta(q_3, \{1,0\}) &=(q_3, \{1,\Box\},ll)\\
+\delta(q_3, \{1,1\}) &=(q_4, \{0,\Box\},ll)\\
+\delta(q_3, \{\Box,0\}) &=(q_3, \{0,\Box\},ll)\\
+\delta(q_3, \{\Box,1\}) &=(q_3, \{1,\Box\},ll)\\
+\delta(q_3, \{1,\Box\}) &=(q_3, \{1,\Box\},ll)\\
+\delta(q_3, \{0,\Box\}) &=(q_3, \{0,\Box\},ll)\\
+\delta(q_3, \{\Box,\Box\}) &=(q_f, \{\Box,\Box\},ll)\\
+\\
+\delta(q_4, \{0,0\}) &=(q_3, \{0,\Box\},ll)\\
+\delta(q_4, \{0,1\}) &=(q_4, \{0,\Box\},ll)\\
+\delta(q_4, \{1,0\}) &=(q_4, \{0,\Box\},ll)\\
+\delta(q_4, \{1,1\}) &=(q_4, \{1,\Box\},ll)\\
+\delta(q_4, \{\Box,0\}) &=(q_3, \{1,\Box\},ll)\\
+\delta(q_4, \{\Box,1\}) &=(q_4, \{0,\Box\},ll)\\
+\delta(q_4, \{0,\Box\}) &=(q_3, \{1,\Box\},ll)\\
+\delta(q_4, \{1,\Box\}) &=(q_4, \{0,\Box\},ll)\\
+\delta(q_4, \{\Box,\Box\}) &=(q_f, \{\Box,\Box\},ll)\\
+\end{align*}
+
+In $q_0$ wandern beide Lese-/Schreibköpfe zum kleinsten Bit beider Zahlen und invertiert dabei die Zahl auf Band 1.\\
+In $q_1$ wird 1 auf die Zahl auf Band 1 addiert.
+In $q_2$ werden der Lese und Schreibkopf wieder zum kleinsten Bit der ersten Zahl bewegt.
+In $q_3$ werden beide Zahlen Bitweise addiert ohne Übertrag.
+In $q_4$ werden beide Zahlen unter Berücksichtigung eines Übertragsbit bitweise addiert.
+
 
 \section*{9.4}
 Sei L eine deterministisch kontextfreie Sprache so gibt es einen DPDA $a = (Q, \Sigma, \Upgamma, q_0, Z_0, \Delta, F)$ für den gilt $L = L(a)$.
