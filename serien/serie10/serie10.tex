@@ -70,6 +70,21 @@
 \lstinputlisting{mod.loop}
 \section*{10.3}
 
+Das ganze ist, Ich bekomm X1 und das Ergebnis res ist die kleinste Zahl für die gilt X1 <= res!
+
+Sei P das gegebene Programm und beschreibe $P_n$ die nte Programmzeile und $P_{n,m}$ das Teilprogramm von der nten bis zur mten Programmzeile, so gilt: 
+
+Sei k der kleinste Wert für den $pr_1([P_{6,12}]^k (n+1, 0, 1, n, 0)) = 0$ gilt.
+
+\begin{align*}
+[P](n, 0, 0, 0, 0) &= [P_{2,14}](n+1, 0, 0, 0, 0)\\ 
+&= [P_{3,14}](n+1, 0, 0, 0, 0) \\
+&= [P_{4,14}](n+1, 0, 1, 0, 0) \\
+&= [P_{5,14}](n+1, 0, 1, n, 0) \\
+&= [P_14]([P_{5,12}](n+1, 0, 1, n, 0)) \\
+&= [P_14]([P_{6,12}]^k (n+1, 0, 1, n, 0)) \\
+\end{align*}
+
 \section*{10.4}
 
 \end{document}
