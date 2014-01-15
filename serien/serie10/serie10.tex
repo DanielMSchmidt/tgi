@@ -68,10 +68,8 @@
 
 \subsection*{x mod y}
 \lstinputlisting{mod.loop}
+
 \section*{10.3}
-
-Das ganze ist, Ich bekomm X1 und das Ergebnis res ist die kleinste Zahl für die gilt X1 <= res!
-
 Sei P das gegebene Programm und beschreibe $P_n$ die nte Programmzeile und $P_{n,m}$ das Teilprogramm von der nten bis zur mten Programmzeile, so gilt: 
 
 Sei k der kleinste Wert für den $pr_1([P_{6,12}]^k (n+1, 0, 1, n, 0)) = 0$ gilt.
@@ -84,6 +82,19 @@ Sei k der kleinste Wert für den $pr_1([P_{6,12}]^k (n+1, 0, 1, n, 0)) = 0$ gilt
 &= [P_14]([P_{5,12}](n+1, 0, 1, n, 0)) \\
 &= [P_14]([P_{6,12}]^k (n+1, 0, 1, n, 0)) \\
 \end{align*}
+
+$[P_{6,12}]$ ist hierbei definiert als
+
+\begin{align*}
+[P_{6,12}](n, m, o, p, 0) &= [P_{7,12}](n, m+1, o, p, 0) \\
+&= [P_{8,12}](n, m+1, o, p, 0) \\
+&= [P_{11,12}]([P_9]^{m+1}(n, m+1, o, p, 0)) \\
+&= [P_{11,12}](n, m+1, o, p, o \cdot (m+1)) \\
+&= [P_{12}](n, m+1, o \cdot (m+1), p, o \cdot (m+1)) \\
+&= (n, m+1, o \cdot (m+1), n - o \cdot (m+1), o \cdot (m+1)) \\
+\end{align*}
+
+Insgesamt berechnet [P](n) das kleinste m für das gilt $n \le m!$.
 
 \section*{10.4}
 
