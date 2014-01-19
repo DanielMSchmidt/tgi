@@ -1,19 +1,25 @@
 # get clones of variables for calculation
-1  LOOP x DO a := a + 1 END
-2  LOOP y DO b := b + 1 END
+1  a := a + x;
+2  b := b + y;
 3  a := a + 1;
-4  LOOP a
+4  LOOP a BEGIN
 #    Increase z unless a == 0
 5    k := 0;
-6    LOOP a DO k := 1 END
-7    LOOP k DO z := z + 1 END
+6    LOOP a BEGGIN
+7      k := 1;
+8    END
+9    z := z + k;
 #    Substract divisor from dividend
-8    LOOP b DO a := a - 1 END
-9  END
-10 z := z + 1;
-11 LOOP z DO
-12   LOOP y DO
-13     j := j + 1;
-14   END
-15 END
-16 LOOP j DO x := x - 1; END
+10   LOOP b BEGIN
+11     a := a - 1;
+12   END
+13 END
+14 z := z - 1;
+15 LOOP z BEGIN
+16   LOOP y BEGIN
+17     j := j + 1;
+18   END
+19 END
+20 LOOP j BEGIN
+21   x := x - 1;
+22 END

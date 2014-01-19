@@ -1,10 +1,14 @@
-1 x := x + 1;
-2 LOOP x
-#   Increase z unless x == 0
-3   k := 0;
-4   LOOP x DO k := 1 END
-5   LOOP k DO z := z + 1 END
-#   Substract divisor from dividend
-6   LOOP y DO x := x - 1 END
-7 END
-8 z := z + 1;
+1  x := x + 1;
+2  LOOP x
+#    Increase z unless x == 0
+3    k := 0;
+4    LOOP x DO BEGIN
+5       k := 1;
+6    END
+7    z := z + k;
+#    Substract divisor from dividend
+8    LOOP y DO BEGIN
+9       x := x - 1;
+10    END
+11 END
+12 z := z - 1;
