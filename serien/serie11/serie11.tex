@@ -96,7 +96,19 @@ Dann ist divides genau das binäre Inverse zu modulo, dementsprechend gilt
 \begin{align*}
 divides &= komp(bininv, komp(mod, p_1^{(2)}, p_2^{(2)}))
 \end{align*}
+
 \subsection*{2.}
+Für diese Funktion definieren wir eine Hilfsfunktion $sumdiv: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$, welche im Grunde $sumdiv(x,y) = \sum_{i = 0}^y divides(i,x)$ ausführt und wie folgt definiert ist
+
+\begin{align*}
+sumdiv = PR(c_0^{(1)}, Komp(+, p_3^{(3)}, Komp(divides, p_2^{(3)}, p_1^{(3)})))
+\end{align*}
+
+Dann lässt sich prime definieren als
+
+\begin{align*}
+prime = komp(bininv, komp(decrement, komp(sumdiv, p_1^{(1)}, komp(decrement, p_1^{(1)}))))
+\end{align*}
 
 \section*{11.4}
 
