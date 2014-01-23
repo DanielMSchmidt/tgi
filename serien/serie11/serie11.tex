@@ -88,7 +88,7 @@ Sei f hier gegeben als $f = PR(c_0^{(0)}, c_1^{(2)})$
 Sei bininv die Funktion die das binäre Inverse zurück gibt definiert als
 
 \begin{align*}
-bininv = PR(c_1^{(0)}, c_0^{(1)}
+bininv = PR(c_1^{(0)}, c_0^{(1)})
 \end{align*}
 
 Dann ist divides genau das binäre Inverse zu modulo, dementsprechend gilt
@@ -111,5 +111,15 @@ prime = komp(bininv, komp(decrement, komp(sumdiv, p_1^{(1)}, komp(decrement, p_1
 \end{align*}
 
 \section*{11.4}
+Um f erfolgreich abzubilden definieren wir uns zuerst die Hilfsfunktion $hoch: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$, welche eine Basis und einen Exponenten nimmt und $\text{Basis}^{\text{Exponent}}$ rechnet. Diese ist primitiv Rekursiv wie folgt definiert:
 
+\begin{align*}
+hoch = PR(c_1^{(1)}, Komp(\cdot, p_1^{(3)}, p_3^{(3)}))
+\end{align*}
+
+Dann ist f definiert als
+
+\begin{align*}
+f = \mu-OP(Komp(-, p_1^{(1)}, Komp(hoch, c_2^2, p_2^{(2)})))
+\end{align*}
 \end{document}
