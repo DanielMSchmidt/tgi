@@ -58,9 +58,21 @@
 
 \section*{12.2}
 \subsection*{1.}
-%to fill
+Zu dieser Instanze gibt es für das PCP Problem keine L\"osung, da das Alphabet von A und B nicht übereinstimmt. (in A gibt es kein b)
+\subsection*{2.}
+L\"osungsmenge: $\{(1,2),(1,2,3,2), ...\}$ also \\
+$ba|aa = b|aaa$ bzw.\\
+$ba|aa|aaa|aa = b|aaa|aa|aaa$
+\subsection*{3.}
+L\"osung: $(3,1)$ \\
+$abab|a = ab|aba$
 \section*{12.3}
-%to fill
-\section*{11.4}
+\textit{Beweis:} Wir geben eine Transformation $A,B \rightarrow A', B'$ mit
+$A,B$ hat spezielle L\"osung $\Leftrightarrow A',B'$ hat L\"osung.\\
+Sei smal-PCP das Postsche Korrespondenzproblem mit einem beliebigen zwei Elementigen Alphabet $\Sigma' = \{a,b\}$. Sei weiter zu jedem Element aus dem Alphabet $\Sigma=\{k_1,...,k_n\}$ des normalen PCP das Wort $k_i'=ab^i$ zu geordnet.
+F\"ur W\"orter bedeutet das $w=k_1,...k_m \in \Sigma^+$ wird $w'=k_1',...k_m'$ zugeordnet.\\
+Daraus folgt, dass $A=\{w_{1a}, ...,w^{pa}\} $ und $ B=\{w_{1b}, ..., w_{qb}\}$ eine L\"osung hat genau dann wenn $A'=\{w_{1a}', ...,w_{ap}'\} $ und $ B'=\{w_{1b}',..., w_{qb}'\}$ eine L\"osung hat.
+
+\section*{12.4}
 %to fill
 \end{document}
