@@ -1,0 +1,219 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Transitionssysteme, endl. Automaten &#8212; Theoretische Grundlagen der Informatik 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Produktautomat" href="produktautomat.html" />
+    <link rel="prev" title="Bezeichnungen" href="bezeichnungen.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="produktautomat.html" title="Produktautomat"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bezeichnungen.html" title="Bezeichnungen"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Definitionen</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="transitionssysteme-endl-automaten">
+<span id="endlautomaten"></span><h1>Transitionssysteme, endl. Automaten<a class="headerlink" href="#transitionssysteme-endl-automaten" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transitionssystem">
+<h2>Transitionssystem<a class="headerlink" href="#transitionssystem" title="Permalink to this headline">¶</a></h2>
+<p>Ein Transitionssystem hat die Form <span class="math notranslate">\(a = (Q, \varSigma,I , \Delta, F)\)</span></p>
+<ul class="simple">
+<li>Q ist die Zustandsmenge</li>
+<li><span class="math notranslate">\(\varSigma\)</span> ist ein endliches Alphabet</li>
+<li><span class="math notranslate">\(I,F \subseteq Q\)</span> ist die Menge der Anfangs- bzw. Endzustände</li>
+<li><span class="math notranslate">\(\Delta \subset Q X \varSigma X Q\)</span> ist die Transitionsrelation</li>
+</ul>
+<p>a ist ein endliches Transitionssystem, wenn Q endlich ist.</p>
+</div>
+<div class="section" id="nicht-deterministischer-endlicher-automat">
+<h2>nicht - deterministischer endlicher Automat<a class="headerlink" href="#nicht-deterministischer-endlicher-automat" title="Permalink to this headline">¶</a></h2>
+<p>Ein endliches Transitionssystem heißt nicht - deterministischer endlicher Automat (NEA / <span class="math notranslate">\(I = \{ q_0 \} \text{ für } q_0 \in Q\)</span>)</p>
+<p><strong>Beispiel</strong>:</p>
+<div class="math notranslate">
+\[a = (Q = \{ q_0, q_1, q_2 \}, \varSigma = \{ 0,1 \}, I = \{ q_0 \}), \Delta = \{ (q_0, 0, q_0), (q_0, 1, q_0), (q_1, 0, q_2) \}, F = \{ q_2 \}\]</div>
+<p><strong>Notation bei NEA’s</strong>:</p>
+<div class="math notranslate">
+\[a = (Q, \varSigma, q_0, \Delta, F)\]</div>
+</div>
+<div class="section" id="pfad">
+<h2>Pfad<a class="headerlink" href="#pfad" title="Permalink to this headline">¶</a></h2>
+<p>Ein Pfad durch a ist eine Folge <span class="math notranslate">\(\Pi = P_0 a_1 P_1 a_2,..., a_n P_n\)</span> mit <span class="math notranslate">\((P_i, a_{i+1}, P_{i+1}) \in \Delta\)</span> für i =0,…, n-1.</p>
+<p>Die <strong>Länge</strong> von <span class="math notranslate">\(\Pi\)</span> sei N und die <strong>Beschriftung</strong> <span class="math notranslate">\(\beta (\Pi) \text{ sei } a_1, a_2, ..., a_n\)</span>.</p>
+<p><span class="math notranslate">\(a: p \rightarrow^w q \text{ für } w \in \varSigma^*\)</span> besagt, dass es mindestens einen Pfad <span class="math notranslate">\(\Pi\)</span> durch a von p nach q mit Beschriftung <span class="math notranslate">\(\beta (\Pi) = w\)</span> gibt.</p>
+<p><strong>Beispiel:</strong></p>
+<div class="math notranslate">
+\[\Pi = q_0 0 q_0 1 q_0 0 q_1 0 q_2, \text{ Beschriftung } \beta (\Pi) = 0100\]</div>
+</div>
+<div class="section" id="akzeptiert">
+<h2>Akzeptiert<a class="headerlink" href="#akzeptiert" title="Permalink to this headline">¶</a></h2>
+<p>a akzeptiert <span class="math notranslate">\(w \in \varSigma^* \Longleftrightarrow \exists p \in I, \exists q \in F \text{ mit } a: p \rightarrow^w q\)</span></p>
+</div>
+<div class="section" id="sprache">
+<h2>Sprache<a class="headerlink" href="#sprache" title="Permalink to this headline">¶</a></h2>
+<p>Für NEA sei <span class="math notranslate">\(L(a) = \{ w \in \varSigma^* \mid akzeptiert w \}\)</span> die durch a erkannte Sprache.</p>
+<p><strong>Beispiel:</strong>
+a akzeptiert w = 0 1 0 0 (da der obrige Pfad: <span class="math notranslate">\(q_0 \in I, q_2 \in F\)</span>)</p>
+<p><strong>Frage:</strong>
+Welches Wort wird nicht akzeptiert? (z.B. w = 0)</p>
+<p>Darstellung des NEA a durch Graphen:</p>
+<ul class="simple">
+<li>Zustände <span class="math notranslate">\(\equiv\)</span> Knoten</li>
+<li>Transitionen <span class="math notranslate">\(\equiv\)</span> Kanten</li>
+<li>Kantenbeschriftung durch Buchstaben aus <span class="math notranslate">\(\varSigma\)</span></li>
+</ul>
+<p><strong>Beispiel 1:</strong></p>
+<div class="math notranslate">
+\[\begin{split}L &amp;= \{ w \in \varSigma^* \mid w = w' 0 0 \text{ für&nbsp;} w' \in \varSigma^* \} \\
+  &amp;= \text{ Menge der Wörter, die mit 00 enden}\end{split}\]</div>
+<a class="reference internal image-reference" href="http://i.imgur.com/3klKVFT.jpg"><img alt="http://i.imgur.com/3klKVFT.jpg" src="http://i.imgur.com/3klKVFT.jpg" style="width: 400px;" /></a>
+<p><strong>Beispiel 2:</strong></p>
+<div class="math notranslate">
+\[\begin{split}\varSigma &amp;= \{ 0,...,9 \}, \\
+L &amp;= \{ w \in \varSigma^* \mid \text{ w stellt eine durch 3 teilbare Dezimalzahl dar }\} \\
+L &amp;= \{\varsigma , 0, 3, 6, 9, 12, ..., 00, 03, .... \}\end{split}\]</div>
+<a class="reference internal image-reference" href="http://i.imgur.com/JeogxGa.jpg"><img alt="http://i.imgur.com/JeogxGa.jpg" src="http://i.imgur.com/JeogxGa.jpg" style="width: 400px;" /></a>
+</div>
+<div class="section" id="deterministisch">
+<h2>Deterministisch<a class="headerlink" href="#deterministisch" title="Permalink to this headline">¶</a></h2>
+<p>a ist deterministisch, wenn</p>
+<div class="math notranslate">
+\[\forall p \in Q: \forall a \in \varSigma: \exists! (\text{existiert genau}) q \in Q mit (p,a,q) \in \Delta\]</div>
+<p>In diesem Fall ist <span class="math notranslate">\(\Delta\)</span> darstellbar durch eine Funktion <span class="math notranslate">\(\delta: Q X \varSigma \rightarrow Q\)</span></p>
+<p><strong>Beispiel</strong></p>
+<ul class="simple">
+<li>L = <span class="math notranslate">\(\emptyset\)</span> akzeptiert durch NEA:</li>
+<li>L = { <span class="math notranslate">\(\varsigma\)</span> }</li>
+</ul>
+<p>In dieser Reihenfolge:</p>
+<a class="reference internal image-reference" href="http://i.imgur.com/HTAYNhi.jpg"><img alt="http://i.imgur.com/HTAYNhi.jpg" src="http://i.imgur.com/HTAYNhi.jpg" style="width: 400px;" /></a>
+</div>
+<div class="section" id="prafix">
+<h2>Präfix<a class="headerlink" href="#prafix" title="Permalink to this headline">¶</a></h2>
+<p>Sei <span class="math notranslate">\(u,w \in \varSigma^*\)</span>, so heißt u Präfix von w, wenn</p>
+<div class="math notranslate">
+\[\exists v \in \varSigma^*: w = uv\]</div>
+</div>
+<div class="section" id="suffix">
+<h2>Suffix<a class="headerlink" href="#suffix" title="Permalink to this headline">¶</a></h2>
+<p>Sei <span class="math notranslate">\(u,w \in \varSigma^*\)</span>, so heißt u Suffix von w, wenn</p>
+<div class="math notranslate">
+\[\exists v \in \varSigma^*: w = vu\]</div>
+</div>
+<div class="section" id="infix">
+<h2>Infix<a class="headerlink" href="#infix" title="Permalink to this headline">¶</a></h2>
+<p>Sei <span class="math notranslate">\(u,w \in \varSigma^*\)</span>, so heißt u Infix von w, wenn</p>
+<div class="math notranslate">
+\[\exists v_1,v_2 \in \varSigma^*: w = v_1 u v_2\]</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Transitionssysteme, endl. Automaten</a><ul>
+<li><a class="reference internal" href="#transitionssystem">Transitionssystem</a></li>
+<li><a class="reference internal" href="#nicht-deterministischer-endlicher-automat">nicht - deterministischer endlicher Automat</a></li>
+<li><a class="reference internal" href="#pfad">Pfad</a></li>
+<li><a class="reference internal" href="#akzeptiert">Akzeptiert</a></li>
+<li><a class="reference internal" href="#sprache">Sprache</a></li>
+<li><a class="reference internal" href="#deterministisch">Deterministisch</a></li>
+<li><a class="reference internal" href="#prafix">Präfix</a></li>
+<li><a class="reference internal" href="#suffix">Suffix</a></li>
+<li><a class="reference internal" href="#infix">Infix</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bezeichnungen.html"
+                        title="previous chapter">Bezeichnungen</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="produktautomat.html"
+                        title="next chapter">Produktautomat</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/definitionen/endliche_automaten.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="produktautomat.html" title="Produktautomat"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bezeichnungen.html" title="Bezeichnungen"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Definitionen</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Daniel Schmidt.
+      Last updated on 27.Mar.2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

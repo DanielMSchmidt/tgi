@@ -1,0 +1,44 @@
+************
+1. Vorlesung
+************
+
+
+Bedingungen zur Klausurzulassung
+--------------------------------
+
+- 10 Blätter erfolgreich bearbeiten
+- 40% pro Blatt richtig bearbeitet
+- Anwesenheitspflicht in den Übungen
+- 1 Mal Vorrechnen, jeder kann dran kommen
+- Abgaben in Zweiergruppen
+
+Organisation
+------------
+
+- Skript wird wochenweise online gestellt mit Passwort: "TGI2013"
+- Am besten mitschreiben in der Vorlesung
+
+
+Einführende Definitionen
+------------------------
+
+
+Es wurden die folgenden Definitionen eingeführt
+
+
+- :ref:`bezeichnungen`
+- :ref:`endlautomaten`
+
+
+Durchschnittt zweier Sprachen
+-----------------------------
+
+**Beispielsprachen:**
+
+.. image:: http://i.imgur.com/YdvIN6G.jpg
+    :width: 1000
+
+**Idee:** Kartesisches Produkt :math:`Q_1 X Q_2`
+
+.. image:: http://i.imgur.com/rtgkFEX.jpg
+    :width: 1000

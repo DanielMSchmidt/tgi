@@ -1,0 +1,124 @@
+************
+3. Vorlesung
+************
+
+
+Es wurden die folgenden Definitionen eingeführt
+
+- :ref:`dea`
+- :ref:`fortsetzung`
+
+
+Satz: Potenzmengenkonstruktion
+==============================
+
+Zu jedem NEA kann man einen äquivalenten DEA konstruieren.
+
+Idee:
+------
+
+Neue Folge ausgehend von {:math:`q_o`} längs aller Folgen von Buchstaben die Mengen von Zuständen, die so erreichbar sind.
+
+.. image:: http://i.imgur.com/IvAeTHk.jpg
+    :width: 1000
+
+
+Formal:
+------
+
+Sei :math:`a = (Q, \varSigma, q_0, \Delta, F)` gegeben, so definiere :math:`a' = (Q', \varSigma, q_0', \delta', F')`, so gilt:
+
+.. math::
+  &Q' = 2^Q = \{ R \mid E \subseteq Q \} \text{ Potenzmenge von Q} \\
+  &q_0' = \{ q_0 \} \\
+  &\text{Für } R \subset Q: \\
+  &\delta'(R, a) = \{ \underline{q} \mid \exists r \in R, (r,a,\underline{q}) \in \Delta \} \\
+  &F' = \{ R \mid R \subseteq Q, R \cap F \neq Q \}
+
+**Behauptung:** :math:`a: p \rightarrow^w q \Longleftrightarrow q \in \delta'(\{ p \}, w)`
+
+**Beweis:** Per Induktion über (w)
+
+:math:`\underline{IA:}`
+Sei :math:`\mid w \mid = 0` und :math:`a: p \rightarrow^{\varepsilon} q \Longleftrightarrow p = q \Longleftrightarrow q \in \delta'(\{p\}, \varepsilon)`.
+
+:math:`\underline{IS:}`
+Sei :math:`w = v a` und es gelte als IV :math:`a: p \rightarrow^v r \Longleftrightarrow r \in \delta'(\{ p \}, v)`, so gilt:
+
+.. math::
+  a: p \rightarrow^{va} q &\Longleftrightarrow \exists r \in Q: a: p \rightarrow^v r \\
+  &\Longleftrightarrow \exists r \in Q: r \in \delta'(\{ p \}, v)
+
+Damit gilt:
+
+.. math::
+  a: p \rightarrow^{va} q &\Longleftrightarrow \exists r \in Q: a: p \rightarrow^v r, a: r \rightarrow^a q \\
+  &\Longleftrightarrow^{IV} \exists r \in Q: r \in \delta'(\{ p \}, v), (r,a,q) \in \Delta \\
+  &\Longleftrightarrow^{Def. \delta'} q \in \delta'(R, a) = \delta'(\delta'(\{ p \}, v), a) \\
+  &\Longleftrightarrow^{Fortsetzung \delta' auf \varSigma^*} q \in \delta'(\{ p \}, va)
+
+
+Für die Akzeptanz gilt also
+
+.. math::
+  \text{a akzeptiert w} &\Longleftrightarrow \exists q \in F: a: q_0 \rightarrow^w q \\
+  &\Longleftrightarrow^{Behauptung} \exists q \in F: q \in \delta'(\{ q_0 \}, w) \\
+  &\Longleftrightarrow \delta'(\{ q_0 \}, w) \cap F \neq \emptyset \\
+  &\Longleftrightarrow^{Def. F'} \delta'(\{ q_0 \}, w) \in F' \\
+  &\Longleftrightarrow^{Def. F'} \text{a' akzeptiert w}
+
+Das bedeutet a und a' sind äquivalent (L(a) = L(a')).
+
+
+Es wurden die folgenden Definitionen eingeführt
+
+- :ref:`regular`
+- :ref:`erreichbar`
+
+
+Identifizierung äquivalenter Zustände
+=====================================
+
+.. image:: http://i.imgur.com/BHPFqUf.jpg
+    :width: 1000
+
+
+Definition
+----------
+
+Zwei Zustände q, q' eines DEA :math:`a = (Q, \varSigma, q_0, \delta, F)` heißen äquivalent, falls :math:`\forall w \in \varSigma^*: (\delta(q,w) \in F \Longleftrightarrow \delta(q', w) \in F)`
+
+Schreibweise
+------------
+
+:math:`q \sim q'`
+
+Bemerkungen
+-----------
+
+a)
+  :math:`\sim` ist eine Äquivalenzrelation. Es sei :math:`\overline{q}` die Äquivalenzklasse von q (:math:`\overline{q} = \{ p \mid p \sim q \}`)
+
+b)
+  :math:`q \sim q', a \in \varSigma \Rightarrow \delta(q,a) \sim \delta(q', a)`
+
+  Ansonsten:
+
+  .. math::
+    \exists w \in \varSigma^*: &[\delta(\delta(q,a),w) \in F \wedge \delta(\delta'(q', a), w) \notin F \\
+    &\text{oder } \delta(\delta(q,a),w) \notin F \wedge \delta(\delta'(q', a), w) \in F] \\
+    &\Longrightarrow \exists w \in \varSigma^*: &[\delta(q,aw) \in F \wedge \delta'(q', aw) \notin F \\
+    &\text{oder } \delta(q,aw) \notin F \wedge \delta(q', aw) \in F] \\
+    &\Longrightarrow q \nsim q' \Longrightarrow WSP.
+
+
+.. image:: http://i.imgur.com/6KrucCO.jpg
+    :width: 1000
+
+
+Es wurden die folgenden Definitionen eingeführt
+
+- :ref:`aequivClass`
+- :ref:`reduzierterDea`
+
+

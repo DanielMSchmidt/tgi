@@ -1,0 +1,317 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>5. und 6. Vorlesung &#8212; Theoretische Grundlagen der Informatik 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Definitionen" href="../definitionen/index.html" />
+    <link rel="prev" title="4. Vorlesung" href="4.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../definitionen/index.html" title="Definitionen"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="4.html" title="4. Vorlesung"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Vorlesungen</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="und-6-vorlesung">
+<h1>5. und 6. Vorlesung<a class="headerlink" href="#und-6-vorlesung" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="angabe-von-nicht-regularen-sprachen">
+<h2>Angabe von nicht-regulären Sprachen<a class="headerlink" href="#angabe-von-nicht-regularen-sprachen" title="Permalink to this headline">¶</a></h2>
+<p>Dies folgt aus dem Satz von Nerode.</p>
+<div class="math notranslate">
+\[\text{L ist nicht-regulär} \Longleftrightarrow \text{Index von } \simeq_L \text{ ist unedlich (d.h. unendl. viele Äquivalenzklassen)}\]</div>
+<p>Beziehungsweise es gibt Wörter <span class="math notranslate">\(u_i \in \varSigma^*\)</span> für beliebige <span class="math notranslate">\(i \ge 0\)</span>, so dass für <span class="math notranslate">\(i \neq j\)</span> jeweils ein Wort w existiert mit <span class="math notranslate">\(u_i w \in L\)</span> und <span class="math notranslate">\(u_j w \notin L\)</span>.</p>
+<div class="section" id="beispiel">
+<h3>Beispiel <span class="math notranslate">\(L_i = \{ a^i b^i \mid i \ge 0 \}\)</span><a class="headerlink" href="#beispiel" title="Permalink to this headline">¶</a></h3>
+<p>Wähle <span class="math notranslate">\(u_i = a^i\)</span>. Für <span class="math notranslate">\(i \neq j\)</span> gilt mit <span class="math notranslate">\(w = b^i\)</span> :</p>
+<div class="math notranslate">
+\[\begin{split}&amp;u_i w = a^i b^i \in L_1 \text{ und } \\
+&amp;u_j w = a^j b^i \notin L_1 (\text{da } i \notin j)\end{split}\]</div>
+<p>Daraus folgt, dass <span class="math notranslate">\(L_1\)</span> nicht regulär ist.</p>
+<p>Sei <span class="math notranslate">\(L_2 = \{ 0^i 1^j \mid ggT(i,j) = 1 \}\)</span> und wähle <span class="math notranslate">\(u_P = 0^P\)</span>, wobei p Primzahl ist (beachte es gibt unendlich viele Primzahlen). Für <span class="math notranslate">\(P \neq q\)</span> gilt mit <span class="math notranslate">\(w = 1^q\)</span>:</p>
+<div class="math notranslate">
+\[\begin{split}&amp;u_p w = 0^P 1^q \in L_2, \text{ weil }ggT(p,q) = 1 \\
+&amp;u_p w = 0^q 1^q \notin L_2, \text{ weil }ggT(q,q) = 1 \ge 2 \\\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="pumping-lemma">
+<h2>Pumping-Lemma<a class="headerlink" href="#pumping-lemma" title="Permalink to this headline">¶</a></h2>
+<p>Es sei L eine reguläre Sprache. Dann gibt es eine Zahl <span class="math notranslate">\(n \in \mathscr{N}\)</span>, sodass sich alle Wörter <span class="math notranslate">\(x \in L\)</span> mit <span class="math notranslate">\(\mid x \mid \ge n\)</span> zerlegen lassen in x = u v w mit den folgenden Eigenschaften:</p>
+<ol class="arabic simple">
+<li><span class="math notranslate">\(\mid v \mid \ge 1\)</span></li>
+<li><span class="math notranslate">\(\mid u v \mid \le n\)</span></li>
+<li><span class="math notranslate">\(\forall i \ge 0: u v^i w \in L\)</span></li>
+</ol>
+<div class="section" id="formal">
+<h3>Formal<a class="headerlink" href="#formal" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate">
+\[\text{L ist regulär} \Rightarrow \exists n \in \mathscr{N}: \forall x \in L: \mid x \mid \ge n \Rightarrow x = u v w \wedge 1, 2 \text{ und } 3\]</div>
+</div>
+<div class="section" id="beweis">
+<h3>Beweis<a class="headerlink" href="#beweis" title="Permalink to this headline">¶</a></h3>
+<p>Sei a ein DEA der L akzeptiert. Wir wählen <span class="math notranslate">\(n = \mid Q \mid\)</span>. Sei <span class="math notranslate">\(x \in L\)</span> mit <span class="math notranslate">\(\mid x \mid = m \ge n\)</span> und <span class="math notranslate">\(x = a_1,...,a_n\)</span> mit <span class="math notranslate">\(a_i \in \varSigma\)</span>. Dann folgt daraus, dass ein Pfad existiert mit <span class="math notranslate">\(\Pi = p_0 a_1 p_1 a_2 p_2 .... a_m p_m\)</span> mit <span class="math notranslate">\(p_0 = q_0\)</span> und <span class="math notranslate">\(p_w \in F\)</span>.</p>
+<p>Die Anzahl der Zustände in <span class="math notranslate">\(\Pi\)</span> ist <span class="math notranslate">\(m + 1 \ge n + 1\)</span> (d.h. ein Zustand kommt mindestens zweimal vor). Daraus folgt, dass unter den ersten n+1 Zuständen <span class="math notranslate">\(p_0,...,p_n\)</span> existiert ein Paar k,k’ mit <span class="math notranslate">\(0 \le k &lt; k' \le n\)</span> und <span class="math notranslate">\(p_k = p_{k'}\)</span>. Wähle <span class="math notranslate">\(u = a_1 ... a_k\)</span>, <span class="math notranslate">\(v = a_{k+1} ... a_{k'}\)</span>, <span class="math notranslate">\(w = a_{k'+1} ... a_m\)</span>.</p>
+<p>Das heißt, das wegen <span class="math notranslate">\(p_k = p_{k'}\)</span> gilt:</p>
+<div class="math notranslate">
+\[\forall i \ge 0: u v^i w \in L(a) = L\]</div>
+<p>Da <span class="math notranslate">\(k &lt; k'\)</span> gilt <span class="math notranslate">\(\mid v \mid \ge 1\)</span> und da <span class="math notranslate">\(k' \le n\)</span> gilt <span class="math notranslate">\(\mid nv \mid \ge n\)</span>.</p>
+<a class="reference internal image-reference" href="http://i.imgur.com/zatzZaz.jpg"><img alt="http://i.imgur.com/zatzZaz.jpg" src="http://i.imgur.com/zatzZaz.jpg" style="width: 1000px;" /></a>
+</div>
+<div class="section" id="beispiel-1">
+<h3>Beispiel 1<a class="headerlink" href="#beispiel-1" title="Permalink to this headline">¶</a></h3>
+<p>Sei <span class="math notranslate">\(L = \{ a^i b^i \mid i \ge 1 \}\)</span> nicht-regulär.</p>
+<p>Annahme: L ist regulär, also gibt es ein <span class="math notranslate">\(n \in \mathscr{N}\)</span>, sodass alle Wörter <span class="math notranslate">\(x \in L\)</span> die Länge <span class="math notranslate">\(x \ge n\)</span> haben.
+Wähle <span class="math notranslate">\(x = a^n b^n\)</span> der Länge 2n, so folgt darus:</p>
+<div class="math notranslate">
+\[\begin{split}\exists &amp;Zerlegung x = u v w: (1) \mid v \mid \ge 1, (2) \mid u,v \mid \le n \\
+\Rightarrow &amp;uv = a^m: m \le n \wedge m \ge 1 \\
+\Rightarrow &amp;v = a^{m'}: 1 \le m' \le m \\
+\Rightarrow &amp;uw = a^{n - m'} b^n \in L\end{split}\]</div>
+<p>Dies ist ein Widerspruch da <span class="math notranslate">\(n - m' \neq n\)</span> und nach Annahme <span class="math notranslate">\(a^n b^n\)</span> kann dies nicht gelten.</p>
+</div>
+<div class="section" id="beispiel-2">
+<h3>Beispiel 2<a class="headerlink" href="#beispiel-2" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate">\(L = \{ 0^m \mid \text{ m ist Quadratzahl} \}\)</span> ist nicht regulär.</p>
+<p>Annahme: L ist regulär, woraus folgt, dass <span class="math notranslate">\(\exists n \in N\)</span>, sodass alle Wörter <span class="math notranslate">\(x \in L\)</span> die Länge n haben.
+Wähle <span class="math notranslate">\(x = 0^{n^2}\)</span>, woraus folgt, dass <span class="math notranslate">\(x \in L\)</span> ist und <span class="math notranslate">\(\mid x \mid = n^2 \ge n\)</span>.
+Betrachtet man nun eine beliebige Zerlegung x = u v w mit <span class="math notranslate">\(1 \le \mid v \mid \le \mid uv \mid \le n\)</span>, so ergibt sich <span class="math notranslate">\(u v^2 w \in L\)</span>. Andererseits gilt:</p>
+<div class="math notranslate">
+\[\begin{split}n^2 &amp;= \mid x \mid \\
+&amp;= \mid u v w \mid \\
+&amp;&lt;^{\mid v \mid \ge 1} \mid u v^2 w \mid \\
+&amp;= \mid uvw \mid + \mid v \mid \\
+&amp;= n^2 + \mid v \mid \\
+&amp;\le n^2 + \mid uv \mid \\
+&amp;\le n^2 + n \\
+&amp;&lt; n^2 + 2n + 1 \\
+&amp;= (n+1)^2\end{split}\]</div>
+<p>Dies ist ein Widerspruch, da es eine Quadratzahl ist.</p>
+<p>Es wurden die folgenden Definitionen eingeführt</p>
+<ul class="simple">
+<li><a class="reference internal" href="../definitionen/regex.html#regex"><span class="std std-ref">Reguläre Ausdrücke</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="satz-von-kleene">
+<h2>Satz von Kleene<a class="headerlink" href="#satz-von-kleene" title="Permalink to this headline">¶</a></h2>
+<p>Eine Sprache <span class="math notranslate">\(L \subseteq \varSigma^*\)</span> ist durch einen NEA erkennbar <span class="math notranslate">\(\Longleftrightarrow\)</span> L ist durch einen regulären Ausdruck definiert.</p>
+<div class="section" id="id1">
+<h3>Beweis<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate">\(\Longleftarrow\)</span>: durch Induktion über Aufbau der regulären Ausdrücke. Finde für jeden regulären Ausdruck r einen <span class="math notranslate">\(\varepsilon\)</span>-NEA <span class="math notranslate">\(a_r\)</span> mit einem Endzustand <span class="math notranslate">\(L(r) = L(a_r)\)</span></p>
+<p>Induktionsanfang:</p>
+<a class="reference internal image-reference" href="http://i.imgur.com/yjlvJ4e.jpg"><img alt="http://i.imgur.com/yjlvJ4e.jpg" src="http://i.imgur.com/yjlvJ4e.jpg" style="width: 1000px;" /></a>
+<p>Induktionsschluss:</p>
+<a class="reference internal image-reference" href="http://i.imgur.com/klvMI1r.jpg"><img alt="http://i.imgur.com/klvMI1r.jpg" src="http://i.imgur.com/klvMI1r.jpg" style="width: 1000px;" /></a>
+<p><span class="math notranslate">\(\Longrightarrow\)</span>: Sei <span class="math notranslate">\(a = (Q, \varSigma, q_0, \Delta, F)\)</span> als NEA gegeben mit <span class="math notranslate">\(Q = \{ q_0, q_1,...,q_n\}\)</span>. Wir definieren für <span class="math notranslate">\(0 \le i,j \le n\)</span>:</p>
+<div class="math notranslate">
+\[L_{ij} = \{ w: a: q_i \rightarrow^w q_j \}\]</div>
+<p>So gilt</p>
+<div class="math notranslate">
+\[L(a) = \bigcup_{q_j \in F} L_{0 j}\]</div>
+<p>Es genügt nun <span class="math notranslate">\(r_{ij}\)</span> für <span class="math notranslate">\(L_{ij}\)</span> zu finden. Hierzu gelte <span class="math notranslate">\(L(r) = \varSigma_{q_j \in F} r_{0 j}\)</span> Der Index(q) für <span class="math notranslate">\(q&nbsp;\in Q\)</span> sei dasjenige j mit <span class="math notranslate">\(q_j = q\)</span>.</p>
+<p>Sei</p>
+<div class="math notranslate">
+\[L_{ij}^k = \{ w \mid \exists Pfad \Pi = p_0 a_1 p_1 ... p_{m - 1} a_m p_m: w = a_1 ... a_m, p_0 = q_i, p_m = q_j, Index(P_l) &lt; k \text{ für } l = 1,..., m - 1 \}\]</div>
+<p>Beweis: <span class="math notranslate">\(L_{ij} = L_{ij}^{n+1}\)</span></p>
+<p>Zeige: <span class="math notranslate">\(\forall k = 0, ..., n + 1: \forall i,j: L_{i,j}^k\)</span> ist durch einen regulären Ausdruck definierbar.</p>
+<p>k = 0:</p>
+<p>Falls i = j: <span class="math notranslate">\(L_{ij}^0 = \{ \varepsilon \} \cup \{ a \mid (q_i, a, q_j) \in \Delta \}\)</span>
+Sonst: <span class="math notranslate">\(\{a \mid (q_i, a, q_j) \in \Delta \}\)</span></p>
+<p>Daraus folgt für <span class="math notranslate">\(r_{ij}^0\)</span>:</p>
+<p>Falls i = j: <span class="math notranslate">\(r_{ij}^0 = \varepsilon + \varSigma_{(q_i, a, q_j) \in \Delta} a\)</span>
+Sonst: <span class="math notranslate">\(r_{ij}^0 = \varSigma_{(q_i,a,q_j) \in \Delta} a\)</span></p>
+<p>Induktionsschritt:</p>
+<p>Es sei <span class="math notranslate">\(L_{ij}^k\)</span> durch den regulären Ausdruck <span class="math notranslate">\(r_{ij}^k\)</span> definierbar, also gilt:</p>
+<div class="math notranslate">
+\[\begin{split}w \in L_{ij}^{k + 1} &amp;\Longleftrightarrow w \in L_{ij}^k \vee \exists m: w = w_0 w_1 ... w_m \text{ und } w_0&nbsp;\in L_{ij}^k, w_1,..., w_{m-1} \in L_{kk}^k \text{ und } w_m \in L_{Rj}^k \\
+&amp;\Longrightarrow L_{ij}^{k+1} = L_{ij}^k \cup L_{ik}^k (L_{kk}^k)^* L_{kj}^k \text{ und } r_{ij}^{k+1} = r_{ij}^k + r_{ik}^k (r_{kk}^k)^* r_{kj}^k\end{split}\]</div>
+</div>
+<div class="section" id="id2">
+<h3>Beispiel<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>k = 0:</p>
+<a class="reference internal image-reference" href="http://i.imgur.com/dTyeGQK.jpg"><img alt="http://i.imgur.com/dTyeGQK.jpg" src="http://i.imgur.com/dTyeGQK.jpg" style="width: 1000px;" /></a>
+<p>k = 1:</p>
+<div class="math notranslate">
+\[\begin{split}r_{00}^1 = r_{00}^0 + r_{00}^0 (r_{00}^0)^* r_{00}^0 &amp;= (\varepsilon + 0) + (\varepsilon + 0)^* + (\varepsilon + 0) = 0^* \\
+r_{01}^1 = r_{01}^0 + r_{00}^0 (r_{00}^0)^* r_{01}^0 &amp;= 1 + 0^* 1 = 0^* 1 \\
+r_{02}^1 = r_{01}^0 + r_{00}^0 (r_{00}^0)^* r_{02}^0 &amp;= \emptyset \\
+r_{11}^1 = r_{11}^0 + r_{10}^0 (r_{00}^0)^* r_{01}^0 &amp;= \varepsilon + \emptyset 1 = 1\\
+.... &amp;= ....&nbsp;\\
+r_{02}^2 = r_{02}^1 + r_{02}^1 (r_{11}^1)^* r_{12}^1 &amp;= \emptyset + 0^* 1 \varepsilon 1 = 0^* 1 1&nbsp;\\
+r_{02}^3 = r_{02}^2 + r_{02}^2 (r_{22}^2)^* r_{22}^2 &amp;= 0^* 1 1 + 0^* 1 1 \varepsilon = 0^* 1 1 = r_{02} = L(a)\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="ziel-elegantes-verfahren-fur-die-konstruktion-von-regularen-ausdrucken">
+<h2>Ziel: Elegantes Verfahren für die Konstruktion von regulären Ausdrücken<a class="headerlink" href="#ziel-elegantes-verfahren-fur-die-konstruktion-von-regularen-ausdrucken" title="Permalink to this headline">¶</a></h2>
+<p>Sei <span class="math notranslate">\(a = (Q, \varSigma, q_0, \Delta, F)\)</span> mit <span class="math notranslate">\(Q = \{ q_0, ..., q_n \}\)</span>, <span class="math notranslate">\(a_i = (Q, \varSigma, q_i, \Delta, F)\)</span>, <span class="math notranslate">\(L_i = L(a_i)\)</span> für <span class="math notranslate">\(0 \le i \le n\)</span></p>
+<p>Nummerierung der Transiitonen aus <span class="math notranslate">\(q_i\)</span>: <span class="math notranslate">\((q_i, a_{(i,1)}, q_{(i,1)}),...,(q_i, a_{(i,w_i)}, q_{(i,w_i)})\)</span></p>
+<a class="reference internal image-reference" href="http://i.imgur.com/qPWHRPV.jpg"><img alt="http://i.imgur.com/qPWHRPV.jpg" src="http://i.imgur.com/qPWHRPV.jpg" style="width: 600px;" /></a>
+<p><span class="math notranslate">\((*)_i\)</span>:</p>
+<div class="math notranslate">
+\[L_i = \{ a_{(i,1)} \} \cdot L_{(i,1)} \cup ... \cup \{ a_{(i, w_i)} \} L_{(i, w_i)} \cup E_i\]</div>
+<p>Mit</p>
+<div class="math notranslate">
+\[\begin{split}E_i =
+  \left\{
+    \begin{array}{ll}
+      \{ \varepsilon \} &amp; \mbox{falls } q_i \in F \\
+      \emptyset &amp; \mbox{sonst}
+    \end{array}
+  \right.\end{split}\]</div>
+<p>Zur Vereinfachung: <span class="math notranslate">\(\{ a \} L_j \cup \{ b \} L_j = \{ a,b \} L_j\)</span></p>
+<p>Sei also <span class="math notranslate">\(A_{i,j} = \{ a \mid \{ a \} L_j \text{ kommt in der Zeile } (*)_j \text{ vor.}\}\)</span>
+Daraus folgt: <span class="math notranslate">\(L_i = A_{i,0} L_0 \cup A_{i,1} L_1 \cup ... \cup A_{i,n} L_n \cup E_i\)</span>, wobei <span class="math notranslate">\(A_{i,j} ˜in \varSigma\)</span>.</p>
+<div class="section" id="id3">
+<h3>Beispiel<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="http://i.imgur.com/KIVMe7x.jpg"><img alt="http://i.imgur.com/KIVMe7x.jpg" src="http://i.imgur.com/KIVMe7x.jpg" style="width: 1000px;" /></a>
+</div>
+</div>
+<div class="section" id="satz-das-zum-nea-gehorige-gleichungssystem-ist-eindeutig-losbar">
+<h2>Satz: Das zum NEA gehörige Gleichungssystem ist eindeutig lösbar<a class="headerlink" href="#satz-das-zum-nea-gehorige-gleichungssystem-ist-eindeutig-losbar" title="Permalink to this headline">¶</a></h2>
+<p>Das zum NEA a gehörige Gleichungssystem GS(a) <span class="math notranslate">\(X_i = \bigcup_{j = 0}^n A_{ij} X_j \cup E_i\)</span> mit <span class="math notranslate">\(A_{ij}, E_i\)</span> wie oben ist eindeutig lösbar und <span class="math notranslate">\(L_0,...,L_n\)</span> mit <span class="math notranslate">\(L_i = L(a_i)\)</span> ist die Lösung.</p>
+<div class="section" id="id4">
+<h3>Beweis:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate">\((L_0,...,L_n)\)</span> ist Lösung wegen der Definition von GS(a).</p>
+<p>Eindeutigkeit:</p>
+<p>Seien <span class="math notranslate">\((K_0,...,K_n),(K_0^{'}, ..., K_n^{'})\)</span> Lösungen von GS(a). Zeige <span class="math notranslate">\(\forall w \in \varSigma^*: \{ w \} \cap K_i = \{ w \} \cap K_i^'\)</span></p>
+<p>Indktion über <a href="#id5"><span class="problematic" id="id6">|w|</span></a>:</p>
+<p>IA: <a href="#id7"><span class="problematic" id="id8">|w|</span></a> = 0</p>
+<div class="math notranslate">
+\[\begin{split}\{ \varepsilon \} \cap K_i &amp;= \bigcup_{j=0}^n(\{ \varepsilon \} \cap A_{ij} K_j) \cup (\{ \varepsilon\} \cap E_i)) \\
+&amp;= \{ \varepsilon \} \cap E_i\end{split}\]</div>
+<p>Analog für K’</p>
+<p>IS: <a href="#id9"><span class="problematic" id="id10">|w|</span></a> = n + 1</p>
+<p>Sei <span class="math notranslate">\(w = xy\)</span> mit <a href="#id11"><span class="problematic" id="id12">|x|</span></a> = 1</p>
+<div class="math notranslate">
+\[\begin{split}\{ w \} \cap K_i &amp;= \bigcup_{j = 0}^n(\{ w \} \cap A_{ij} K_j) \cup (\{w\} \cap E_i) \\
+&amp;= ... \\
+&amp;= \{ w \} \cap K_{L}^{'}\end{split}\]</div>
+<a class="reference internal image-reference" href="http://i.imgur.com/ajg2Tlx.jpg"><img alt="http://i.imgur.com/ajg2Tlx.jpg" src="http://i.imgur.com/ajg2Tlx.jpg" style="width: 800px;" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. und 6. Vorlesung</a><ul>
+<li><a class="reference internal" href="#angabe-von-nicht-regularen-sprachen">Angabe von nicht-regulären Sprachen</a><ul>
+<li><a class="reference internal" href="#beispiel">Beispiel <span class="math notranslate">\(L_i = \{ a^i b^i \mid i \ge 0 \}\)</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pumping-lemma">Pumping-Lemma</a><ul>
+<li><a class="reference internal" href="#formal">Formal</a></li>
+<li><a class="reference internal" href="#beweis">Beweis</a></li>
+<li><a class="reference internal" href="#beispiel-1">Beispiel 1</a></li>
+<li><a class="reference internal" href="#beispiel-2">Beispiel 2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#satz-von-kleene">Satz von Kleene</a><ul>
+<li><a class="reference internal" href="#id1">Beweis</a></li>
+<li><a class="reference internal" href="#id2">Beispiel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ziel-elegantes-verfahren-fur-die-konstruktion-von-regularen-ausdrucken">Ziel: Elegantes Verfahren für die Konstruktion von regulären Ausdrücken</a><ul>
+<li><a class="reference internal" href="#id3">Beispiel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#satz-das-zum-nea-gehorige-gleichungssystem-ist-eindeutig-losbar">Satz: Das zum NEA gehörige Gleichungssystem ist eindeutig lösbar</a><ul>
+<li><a class="reference internal" href="#id4">Beweis:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="4.html"
+                        title="previous chapter">4. Vorlesung</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../definitionen/index.html"
+                        title="next chapter">Definitionen</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vorlesungen/5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../definitionen/index.html" title="Definitionen"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="4.html" title="4. Vorlesung"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Vorlesungen</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Daniel Schmidt.
+      Last updated on 27.Mar.2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

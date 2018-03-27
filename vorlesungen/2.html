@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2. Vorlesung &#8212; Theoretische Grundlagen der Informatik 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Vorlesung" href="3.html" />
+    <link rel="prev" title="1. Vorlesung" href="1.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="3.html" title="3. Vorlesung"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="1.html" title="1. Vorlesung"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Vorlesungen</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vorlesung">
+<h1>2. Vorlesung<a class="headerlink" href="#vorlesung" title="Permalink to this headline">¶</a></h1>
+<p>Es wurden die folgenden Definitionen eingeführt</p>
+<ul class="simple">
+<li><a class="reference internal" href="../definitionen/produktautomat.html#produktautomat"><span class="std std-ref">Produktautomat</span></a></li>
+</ul>
+<div class="section" id="lemma">
+<h2>Lemma: <span class="math notranslate">\(L(a_1 X a_2) = L(a_1) \cap L(a_2)\)</span><a class="headerlink" href="#lemma" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate">
+\[\begin{split}&amp;w = a_1 ... a_n \in L(a_1 X a_2) \\
+&amp;\Longleftrightarrow^{\text{Definition Akzeptierbarkeit}} \exists \text{ Pfad } (p_0, r_0) a_1 (p_1, r_1) a_2 ...... \text{ mit } \\
+&amp;(p_0, r_0) = (q_1, q_2), ((p_i, r_i), a_{i+1}, (p_{i+1}, r_{i+1})) \in \Delta \text{ und } (p_n, r_n) \in F \\
+&amp;\Longleftrightarrow^{\text{Def } \Delta, F} \exists \text{ Pfad } p_0 a_1 p_1 ... a_n p_n \text{ mit } p_0 = q_1, (p_i, q_{i + 1}, p_{i + 1}) \in \Delta_1, p_n \in F_1 \\
+&amp;\text{ und } \exists \text{ Pfad } p_0 a_1 p_1 ... a_n p_n \text{ mit } r_0 = q_2, (p_i, q_{i + 1}, p_{i + 1}) \in \Delta_2, p_n \in F_2 \\
+&amp;\Longleftrightarrow^{\text{Definition Akzeptierbarkeit}} w \in L(a_1) \text{ und } w \in L(a_2) \\
+&amp;\Longleftrightarrow w \in L(a_1) \cap L(a_2)\end{split}\]</div>
+</div>
+<div class="section" id="satz-zu-jedem-nea-a-mit-worttransitionen-gibt-es-einen-aquivalenten-nea-a">
+<h2>Satz: Zu jedem NEA a mit Worttransitionen gibt es einen äquivalenten NEA a’.<a class="headerlink" href="#satz-zu-jedem-nea-a-mit-worttransitionen-gibt-es-einen-aquivalenten-nea-a" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="http://i.imgur.com/32sLBKI.jpg"><img alt="http://i.imgur.com/32sLBKI.jpg" src="http://i.imgur.com/32sLBKI.jpg" style="width: 1000px;" /></a>
+<div class="section" id="lemma-1-zu-jedem-nea-a-mit-worttransitionen-gibt-es-einen-nea-a-mit-l-a-l-a">
+<h3>Lemma 1: Zu jedem NEA a mit Worttransitionen gibt es einen <span class="math notranslate">\(\varepsilon\)</span>-NEA a’ mit L(a) = L(a’).<a class="headerlink" href="#lemma-1-zu-jedem-nea-a-mit-worttransitionen-gibt-es-einen-nea-a-mit-l-a-l-a" title="Permalink to this headline">¶</a></h3>
+<p><strong>Beweis:</strong></p>
+<p>Ersetze jede Transition <span class="math notranslate">\((p, a_1,...,a_n, q)\)</span> in a mit <span class="math notranslate">\(n \ge 2\)</span> durch Transitionen <span class="math notranslate">\((p, a_1, q_1), (p, a_2, q_2),...., (p, a_n, q_n)\)</span> mit jeweils neuen Zuständen <span class="math notranslate">\(q_1,...,q_{n - 1}\)</span>.</p>
+</div>
+<div class="section" id="lemma-2-zu-jedem-nea-a-gibt-es-einen-aquivalenten-nea-a">
+<h3>Lemma 2: Zu jedem <span class="math notranslate">\(\varepsilon\)</span>-NEA a gibt es einen äquivalenten NEA a’<a class="headerlink" href="#lemma-2-zu-jedem-nea-a-gibt-es-einen-aquivalenten-nea-a" title="Permalink to this headline">¶</a></h3>
+<p><strong>Beweis:</strong></p>
+<p>Sei <span class="math notranslate">\(a = (Q, \varSigma, q_0, \Delta, F)\)</span> ein <span class="math notranslate">\(\varepsilon\)</span>-NEA. O.B.d.A gibt es keine Transitionen nach q_0. Wir definieren <span class="math notranslate">\(a' = (Q, \varSigma, q_0, \Delta', F')\)</span> mit</p>
+<div class="math notranslate">
+\[\begin{split}&amp;(p,a,q) \in \Delta' \Longleftrightarrow \exists \text{ ein Pfad } \Pi \text{ durch a von p nach q mit Beschriftung } p(\Pi) = a \\
+&amp;F' =  F&nbsp;\cup \{ q_0 \} \text{ falls } a: q_0 \rightarrow^\varepsilon F, \text{ ansonsten F}\end{split}\]</div>
+</div>
+<div class="section" id="behauptung-l-a-l-a">
+<h3>Behauptung: L(a) = L(a’)<a class="headerlink" href="#behauptung-l-a-l-a" title="Permalink to this headline">¶</a></h3>
+<p>“&lt;”: a akzeptiert w. Sei <span class="math notranslate">\(p_0 a_1 p_1 ... a_n p_n\)</span> Pfad von <span class="math notranslate">\(q_0\)</span> durch <span class="math notranslate">\(\varepsilon\)</span>-NEA a nach F mit Beschriftung w. Seien <span class="math notranslate">\(a_{i_1},...,a_{i_n}\)</span> die <span class="math notranslate">\(a_i \neq \varepsilon\)</span> (mit <span class="math notranslate">\(i_1 &lt; i_2 &lt; ... &lt; i_n\)</span>) <span class="math notranslate">\(\Longrightarrow w = a_{i_1}, ..., a_{i_n}\)</span></p>
+<p>Fall 1: <span class="math notranslate">\(w = 0 \Longrightarrow w = \varepsilon \Longrightarrow a: q_0 \rightarrow^\varepsilon F \Longrightarrow q_0 \in F'\)</span> und a’ akzeptiert <span class="math notranslate">\(\varepsilon\)</span>.</p>
+<p>Fall 2: <span class="math notranslate">\(w &gt; 0\)</span> Dann ist die folgende Folge ein Pfad durch a’: <span class="math notranslate">\(p_0 a_{i_1} p_{i_1} a_{i_2} p_{i_2}, ...., p_{i_{n - 1}} a_{i_n} p_{i_n}\)</span>
+Dazu zeige</p>
+<div class="math notranslate">
+\[\begin{split}&amp;(p_0, a_{i_1}, p_{i_1}) \in \Delta' \\
+&amp;(p_{i_1}, a_{i_2}, p_{i_2}) \in \Delta' \\
+&amp;...\\
+&amp;(p_{i_{n - 1}}, a_{i_n}, p_{i_n}) \in \Delta' \\\end{split}\]</div>
+<p><span class="math notranslate">\(\Longrightarrow w \in L(a')\)</span></p>
+<p>“&gt;” ist analog zu zeigen.</p>
+<a class="reference internal image-reference" href="http://i.imgur.com/b3IzJhg.jpg"><img alt="http://i.imgur.com/b3IzJhg.jpg" src="http://i.imgur.com/b3IzJhg.jpg" style="width: 1000px;" /></a>
+<div class="math notranslate">
+\[(q_0, a, q_1) \in \Delta' \Longleftrightarrow \exists \text{ Pfad } \Pi = q_0 \varepsilon q_1 a q_1, \beta(\Pi) = a\]</div>
+</div>
+</div>
+<div class="section" id="verfahren-zur-entscheidung-ob-nea-mit-pfad">
+<h2>Verfahren zur Entscheidung ob <span class="math notranslate">\(\varepsilon\)</span>-NEA <span class="math notranslate">\(a: p \rightarrow q\)</span> mit Pfad <span class="math notranslate">\(\Pi\)</span><a class="headerlink" href="#verfahren-zur-entscheidung-ob-nea-mit-pfad" title="Permalink to this headline">¶</a></h2>
+<p>Hierzu reicht ein Verfahren zur Entscheidung, ob <span class="math notranslate">\(a: p \rightarrow^\varepsilon p'\)</span> bzw <span class="math notranslate">\(a: q \rightarrow^\varepsilon q'\)</span> für <span class="math notranslate">\(p', q' \in Q\)</span> durch <span class="math notranslate">\(\varepsilon\)</span> - Pfade.</p>
+<div class="section" id="gegeben-nea-mit">
+<h3>Gegeben: <span class="math notranslate">\(\varepsilon\)</span>-NEA <span class="math notranslate">\(a = (Q, \varSigma, q_0, \Delta, F)\)</span> mit <span class="math notranslate">\(Q = \{ q_0, q_1,..., q_{n - 1} \}\)</span><a class="headerlink" href="#gegeben-nea-mit" title="Permalink to this headline">¶</a></h3>
+<p>Definiere <span class="math notranslate">\(\varepsilon_{ij} = 1 falls (q_i, \varepsilon, q_j) \in \Delta\)</span> oder i = j, ansonsten 0</p>
+</div>
+<div class="section" id="gesucht-werte-ansonsten-0">
+<h3>Gesucht: Werte <span class="math notranslate">\(c_{ij} \text{ mit } c_{ij} = 1 falls a: q_i \rightarrow^\varepsilon q_j\)</span>, ansonsten 0<a class="headerlink" href="#gesucht-werte-ansonsten-0" title="Permalink to this headline">¶</a></h3>
+<p>Dazu berechne rekursiv</p>
+<div class="math notranslate">
+\[c_{ij}^{(r)} = 1 falls \exists \text{ Pfad von } q_i \text{ nach } q_j \text{ der Länge } \le r\]</div>
+</div>
+<div class="section" id="behauptung">
+<h3>Behauptung: <span class="math notranslate">\(c_{ij} = c_{ij}^{(n - 1)} \text{ für } n = \mid Q \mid\)</span><a class="headerlink" href="#behauptung" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="zeige-es-existiert-ein-pfad-von-nach-es-existiert-ein-pfad-von-nach-der-lange">
+<h3>Zeige: Es existiert ein <span class="math notranslate">\(\varepsilon\)</span> - Pfad von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j \nLeftrightarrow\)</span> Es existiert ein <span class="math notranslate">\(\varepsilon\)</span> - Pfad von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j\)</span> der Länge <span class="math notranslate">\(\le n - 1\)</span><a class="headerlink" href="#zeige-es-existiert-ein-pfad-von-nach-es-existiert-ein-pfad-von-nach-der-lange" title="Permalink to this headline">¶</a></h3>
+<p>&lt;= ist trivial</p>
+<p>=&gt;: Es sei <span class="math notranslate">\(\Pi\)</span> ein <span class="math notranslate">\(\varepsilon\)</span> - Pfad von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j\)</span> minimaler Länge
+Zeige: Länge von <span class="math notranslate">\(\Pi\)</span> ist <span class="math notranslate">\(\le n - 1\)</span></p>
+<p>Annahme: <span class="math notranslate">\(\Pi = q_i = p_0 \varsigma p_1 \varsigma ... \varsigma p_m = q_j \wedge m \ge n\)</span></p>
+<p>=&gt; Es gibt eine Zustandswiederholung <span class="math notranslate">\(p_k = p_{k'}\)</span> mit <span class="math notranslate">\(k \subset k'\)</span></p>
+<p>=&gt; Es gibt einen kürzeren <span class="math notranslate">\(\varepsilon\)</span> - Pfad von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j\)</span>, was ein Wiederspruch zur Minimalität ist.</p>
+</div>
+</div>
+<div class="section" id="wie-berechnet-man">
+<h2>Wie berechnet man <span class="math notranslate">\(c_{ij}^{(r)}\)</span>?<a class="headerlink" href="#wie-berechnet-man" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate">
+\[\begin{split}&amp;c_{ij}^{(0)} = 1 \text{ falls } i = j, \text{ ansonsten&nbsp;} 0 \\
+&amp;c_{ij}^{(r + 1)} = c_{ij}^{(r)} \vee \bigvee_{k = 0}^{n - 1}(c_{ik}^{(r)} \wedge \varsigma_{kj})\end{split}\]</div>
+<p>Das heißt es gibt einen Pfad von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j\)</span> der Länge <span class="math notranslate">\(\le r + 1\)</span>, wenn es einen Pfad der Länge <span class="math notranslate">\(\le r\)</span> gibt <strong>oder</strong> es gibt einen Zwischenknoten <span class="math notranslate">\(q_k\)</span> und einen Pfad der Länge <span class="math notranslate">\(\le r\)</span> von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j\)</span> und eine <span class="math notranslate">\(\varepsilon\)</span> - Transition <span class="math notranslate">\((q_k, \varepsilon, q_j) \in \Delta\)</span></p>
+<a class="reference internal image-reference" href="http://i.imgur.com/i7rDRdm.jpg"><img alt="http://i.imgur.com/i7rDRdm.jpg" src="http://i.imgur.com/i7rDRdm.jpg" style="width: 400px;" /></a>
+<div class="section" id="zeitaufwand">
+<h3>Zeitaufwand<a class="headerlink" href="#zeitaufwand" title="Permalink to this headline">¶</a></h3>
+<p>O(n^4), reduzierbar auf 0(n^3)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Vorlesung</a><ul>
+<li><a class="reference internal" href="#lemma">Lemma: <span class="math notranslate">\(L(a_1 X a_2) = L(a_1) \cap L(a_2)\)</span></a></li>
+<li><a class="reference internal" href="#satz-zu-jedem-nea-a-mit-worttransitionen-gibt-es-einen-aquivalenten-nea-a">Satz: Zu jedem NEA a mit Worttransitionen gibt es einen äquivalenten NEA a’.</a><ul>
+<li><a class="reference internal" href="#lemma-1-zu-jedem-nea-a-mit-worttransitionen-gibt-es-einen-nea-a-mit-l-a-l-a">Lemma 1: Zu jedem NEA a mit Worttransitionen gibt es einen <span class="math notranslate">\(\varepsilon\)</span>-NEA a’ mit L(a) = L(a’).</a></li>
+<li><a class="reference internal" href="#lemma-2-zu-jedem-nea-a-gibt-es-einen-aquivalenten-nea-a">Lemma 2: Zu jedem <span class="math notranslate">\(\varepsilon\)</span>-NEA a gibt es einen äquivalenten NEA a’</a></li>
+<li><a class="reference internal" href="#behauptung-l-a-l-a">Behauptung: L(a) = L(a’)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#verfahren-zur-entscheidung-ob-nea-mit-pfad">Verfahren zur Entscheidung ob <span class="math notranslate">\(\varepsilon\)</span>-NEA <span class="math notranslate">\(a: p \rightarrow q\)</span> mit Pfad <span class="math notranslate">\(\Pi\)</span></a><ul>
+<li><a class="reference internal" href="#gegeben-nea-mit">Gegeben: <span class="math notranslate">\(\varepsilon\)</span>-NEA <span class="math notranslate">\(a = (Q, \varSigma, q_0, \Delta, F)\)</span> mit <span class="math notranslate">\(Q = \{ q_0, q_1,..., q_{n - 1} \}\)</span></a></li>
+<li><a class="reference internal" href="#gesucht-werte-ansonsten-0">Gesucht: Werte <span class="math notranslate">\(c_{ij} \text{ mit } c_{ij} = 1 falls a: q_i \rightarrow^\varepsilon q_j\)</span>, ansonsten 0</a></li>
+<li><a class="reference internal" href="#behauptung">Behauptung: <span class="math notranslate">\(c_{ij} = c_{ij}^{(n - 1)} \text{ für } n = \mid Q \mid\)</span></a></li>
+<li><a class="reference internal" href="#zeige-es-existiert-ein-pfad-von-nach-es-existiert-ein-pfad-von-nach-der-lange">Zeige: Es existiert ein <span class="math notranslate">\(\varepsilon\)</span> - Pfad von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j \nLeftrightarrow\)</span> Es existiert ein <span class="math notranslate">\(\varepsilon\)</span> - Pfad von <span class="math notranslate">\(q_i\)</span> nach <span class="math notranslate">\(q_j\)</span> der Länge <span class="math notranslate">\(\le n - 1\)</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wie-berechnet-man">Wie berechnet man <span class="math notranslate">\(c_{ij}^{(r)}\)</span>?</a><ul>
+<li><a class="reference internal" href="#zeitaufwand">Zeitaufwand</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="1.html"
+                        title="previous chapter">1. Vorlesung</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="3.html"
+                        title="next chapter">3. Vorlesung</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vorlesungen/2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="3.html" title="3. Vorlesung"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="1.html" title="1. Vorlesung"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Vorlesungen</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Daniel Schmidt.
+      Last updated on 27.Mar.2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

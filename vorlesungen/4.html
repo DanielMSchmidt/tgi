@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>4. Vorlesung &#8212; Theoretische Grundlagen der Informatik 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. und 6. Vorlesung" href="5.html" />
+    <link rel="prev" title="3. Vorlesung" href="3.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="5.html" title="5. und 6. Vorlesung"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="3.html" title="3. Vorlesung"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Vorlesungen</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vorlesung">
+<h1>4. Vorlesung<a class="headerlink" href="#vorlesung" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="allgemein-zum-bestimmen-von-auqivalenten-zustanden">
+<h2>Allgemein zum Bestimmen von äuqivalenten Zuständen<a class="headerlink" href="#allgemein-zum-bestimmen-von-auqivalenten-zustanden" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="eingabe">
+<h3>Eingabe<a class="headerlink" href="#eingabe" title="Permalink to this headline">¶</a></h3>
+<p>DEA a, der nur erreichbare Zustände enthält</p>
+<ol class="arabic simple">
+<li>stelle eine Tabelle aller Zustandspaare <span class="math notranslate">\(\{ q, q' \}\)</span> mit <span class="math notranslate">\(q \neq q'\)</span> von a auf.</li>
+<li>markiere alle Paare <span class="math notranslate">\(\{ q, q' \}\)</span> mit <span class="math notranslate">\(q \in F \wedge q' \notin F\)</span> (bzw. umgekehrt)</li>
+<li>für jedes noch unmarkierte Paar <span class="math notranslate">\(\{ q, q' \}\)</span> und jedes <span class="math notranslate">\(a \in \varSigma\)</span> teste, ob <span class="math notranslate">\(\{ \delta(q,a), \delta(q', a) \}\)</span> bereits markiert ist. Wenn ja markiere auch <span class="math notranslate">\(\{ q,q'\}\)</span></li>
+<li>wiederhole Schritt (3) bis sich keine Änderungen mehr in der Tabelle ergeben.</li>
+<li>alle noch unmarkierten Paare sind äuqivalente Zustände.</li>
+</ol>
+<a class="reference internal image-reference" href="http://i.imgur.com/JQk4Ey3.jpg"><img alt="http://i.imgur.com/JQk4Ey3.jpg" src="http://i.imgur.com/JQk4Ey3.jpg" style="width: 1000px;" /></a>
+<a class="reference internal image-reference" href="http://i.imgur.com/odOffa8.jpg"><img alt="http://i.imgur.com/odOffa8.jpg" src="http://i.imgur.com/odOffa8.jpg" style="width: 1000px;" /></a>
+</div>
+<div class="section" id="korrektheit">
+<h3>Korrektheit<a class="headerlink" href="#korrektheit" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>es werden nur nicht-äquivalente Zustandspaare makiert.</li>
+<li>der Algorithmus terminiert (es gibt nur endl. viele Paare)</li>
+<li>bei Abbruch des Algorithmus sind alle nicht-äquivalenten Paare markiert:</li>
+</ol>
+<p><strong>Voraussetzung:</strong> Der Algorithmus endet nach m+1 Iterationen von Schritt 3.</p>
+<p><strong>Annahme:</strong> Ein nicht-äquivalentes Paar (p,q) ist noch nicht markiert. Wähle l &gt; m +1 minimal aus, sodass</p>
+<div class="math notranslate">
+\[a: p \rightarrow^w F, a: q /rightarrow^w \notin F \wedge \mid w \mid = l\]</div>
+<p>Sei w = u v mit <span class="math notranslate">\(\mid v \mid = m + 1\)</span>, so gilt:</p>
+<div class="math notranslate">
+\[a: p \rightarrow^u p' \rightarrow^v F, a: q \rightarrow^u q' \rightarrow^v \notin F\]</div>
+<p>Das Paar (p’, q’) ist in der (m + 1) Iteration trennbar mit <span class="math notranslate">\(a: p' \rightarrow^v F, a: q' \rightarrow^v \notin F\)</span>, aber nicht in einer früheren Iteration (ansonsten wäre l nicht minimal). Daraus folgt, dass in der (m + 1) Iteration noch ein nicht-äquivalentes Paar gefunden wurde, woraus <span class="math notranslate">\(\ge (m + 2)\)</span> Iterationen und daher ein Wiederspruch.</p>
+<p>Es wurden die folgenden Definitionen eingeführt</p>
+<ul class="simple">
+<li><a class="reference internal" href="../definitionen/aequiv.html#aequiv"><span class="std std-ref">Äquivalenz ()</span></a></li>
+<li><a class="reference internal" href="../definitionen/aequivWord.html#aequivword"><span class="std std-ref">Äquivalenz von Wörtern</span></a></li>
+<li><a class="reference internal" href="../definitionen/indexOf.html#indexof"><span class="std std-ref">Index von </span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="satz-von-nerode">
+<h2>Satz von Nerode<a class="headerlink" href="#satz-von-nerode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="behauptung">
+<h3>Behauptung:<a class="headerlink" href="#behauptung" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate">\(L \subset \varSigma^* \text{regulär} \Longleftrightarrow \text{Index von } \simeq_L \text{ ist endlich}\)</span></p>
+</div>
+<div class="section" id="beweis">
+<h3>Beweis:<a class="headerlink" href="#beweis" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate">\(\Rightarrow\)</span>:</p>
+<p>Sei a = (Q, <span class="math notranslate">\(\varSigma, q_0, \delta\)</span>, F) ein DEA, der L erkennt, so ist zu zeigen, dass verschiedene <span class="math notranslate">\(\simeq_L\)</span>-Klassen in <span class="math notranslate">\(\varSigma^*\)</span> bestimmen verschiedene <span class="math notranslate">\(\simeq_a\)</span>-Klassen in Q.</p>
+<p><strong>Dann:</strong> <span class="math notranslate">\(\mid Q \mid \ge Index(\simeq_a) \ge Index(\simeq_L)\)</span></p>
+<p>Seien <span class="math notranslate">\(u \not\simeq_L v\)</span>, d.h. <span class="math notranslate">\([u]_L \neq [v]_L\)</span> gegeben. Bilde nun <span class="math notranslate">\(\delta(q_0, u), \delta(q_0,v)\)</span> und <span class="math notranslate">\(\delta(q_0, u) \not\sim_a \delta(q_0,v)\)</span>.</p>
+<p><strong>Annahme:</strong> <span class="math notranslate">\(\delta(q_0, u) \sim_a \delta(q_0,v)\)</span></p>
+<div class="math notranslate">
+\[\begin{split}&amp;\delta(q_0, u) \sim_a \delta(q_0,v) \\
+&amp; \forall w \in \varSigma^*: \delta(\delta(q_0, u), w) \in F \Longleftrightarrow \delta(\delta(q_0, v), w) \in F \\
+&amp; \forall w \in \varSigma^*: uw \in L \Longleftrightarrow vw \in L \\
+&amp; u \simeq_L v = WSP\\\end{split}\]</div>
+<p><span class="math notranslate">\(\Leftarrow\)</span>:</p>
+<p>Sei Index (<span class="math notranslate">\(\simeq_L\)</span>) endlich. Bilde DEA a, der L erkennt.</p>
+<p>a = <span class="math notranslate">\((Q^\sim, \varSigma, q_0^\sim, \delta^\sim, F^\sim)\)</span> mit</p>
+<p><span class="math notranslate">\(Q^\sim\)</span> = Menge der <span class="math notranslate">\(\simeq_L\)</span> - Äquivalenzklassen</p>
+<p><span class="math notranslate">\(q_0^\sim = [\varepsilon]\)</span></p>
+<p><span class="math notranslate">\(F^\sim = \{ [u] \mid u \in L \}\)</span></p>
+<p>und <span class="math notranslate">\(\forall a \in \varSigma: \delta^\sim ([u], a) = [u a]\)</span></p>
+</div>
+<div class="section" id="beachte">
+<h3>Beachte:<a class="headerlink" href="#beachte" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate">\(\forall w \in \varSigma^*: [u] = [v] \Longrightarrow [uw] = [vw]\)</span></p>
+<p>Hieraus folgt: <span class="math notranslate">\(\delta^\sim\)</span> ist wohldefiniert und es gilt ferner (per Induktion über <span class="math notranslate">\(\mid w \mid\)</span>):</p>
+<p><span class="math notranslate">\(\forall w \in \varSigma^*: \delta^\sim([u], w) = [u w]\)</span></p>
+<p>Dann gilt</p>
+<div class="math notranslate">
+\[\begin{split}w \in L(a) &amp;\Longleftrightarrow \text{a akzeptiert w} \\
+&amp;\Longleftrightarrow \delta^\sim([\varepsilon], w) \in F^\sim \\
+&amp;\Longleftrightarrow [\varepsilon w ] = w \in F \\
+&amp;\Longleftrightarrow  w \in L. \Rightarrow L(a) = L\end{split}\]</div>
+<p><strong>Satz:</strong></p>
+<p>Der kanonische DEA a ist isomorph zu jedem DEA <span class="math notranslate">\(a^\sim\)</span>, der gemäß dem Reduktionsverfahren aus einem belibigen DEA a, der L erkennt, entsteht.</p>
+<a class="reference internal image-reference" href="http://i.imgur.com/UbDcDq2.jpg"><img alt="http://i.imgur.com/UbDcDq2.jpg" src="http://i.imgur.com/UbDcDq2.jpg" style="width: 1000px;" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Vorlesung</a><ul>
+<li><a class="reference internal" href="#allgemein-zum-bestimmen-von-auqivalenten-zustanden">Allgemein zum Bestimmen von äuqivalenten Zuständen</a><ul>
+<li><a class="reference internal" href="#eingabe">Eingabe</a></li>
+<li><a class="reference internal" href="#korrektheit">Korrektheit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#satz-von-nerode">Satz von Nerode</a><ul>
+<li><a class="reference internal" href="#behauptung">Behauptung:</a></li>
+<li><a class="reference internal" href="#beweis">Beweis:</a></li>
+<li><a class="reference internal" href="#beachte">Beachte:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="3.html"
+                        title="previous chapter">3. Vorlesung</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="5.html"
+                        title="next chapter">5. und 6. Vorlesung</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/vorlesungen/4.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="5.html" title="5. und 6. Vorlesung"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="3.html" title="3. Vorlesung"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Theoretische Grundlagen der Informatik 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Vorlesungen</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Daniel Schmidt.
+      Last updated on 27.Mar.2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>
